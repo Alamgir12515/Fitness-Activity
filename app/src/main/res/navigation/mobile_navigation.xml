@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_bmi">
+
+    <fragment
+        android:id="@+id/nav_bmi"
+        android:name="com.example.fitnessactivity.fragments.BmiFragment"
+        android:label="fragment_bmi"
+        tools:layout="@layout/fragment_bmi" />
+    <fragment
+        android:id="@+id/nav_nearest_gym"
+        android:name="com.example.fitnessactivity.fragments.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/nav_step_counter"
+        android:name="com.example.fitnessactivity.fragments.StepCounterFragment"
+        android:label="fragment_step_counter"
+        tools:layout="@layout/fragment_step_counter" />
+    <fragment
+        android:id="@+id/nav_youtube"
+        android:name="com.example.fitnessactivity.fragments.VideosFragment"
+        android:label="fragment_videos"
+        tools:layout="@layout/fragment_videos" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.fitnessactivity.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

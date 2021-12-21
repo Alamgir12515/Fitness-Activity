@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Fitness Activity</string>
+    <string name="signIn">Sign In</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="dontHaveAccount">Don\'t have an account?</string>
+    <string name="signUp">Sign Up</string>
+    <string name="name">Name</string>
+    <string name="phoneNumber">Phone</string>
+    <string name="bmi">BMI</string>
+    <string name="nearest_gym">Near Gym</string>
+    <string name="stepCounter">Step Count</string>
+    <string name="videos">Videos</string>
+    <string name="profile">Profile</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBBi7byyiwDwUXF5dP4s0FVKwBN_VXzlH0</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="logOut">Log Out</string>
+    <string name="login">Login</string>
+    <string name="forgotPassword">Forgot your password?</string>
+    <string name="dailyChallenges">Daily Challenges</string>
+    <string name="videoSuggestions">Video Suggestions</string>
+    <string name="workoutSuggestions">Workout Suggestions</string>
+    <string name="step_Counter">Step\nCounter</string>
+    <string name="bmi_calculator">BMI\nCalculator</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="age">Age</string>
+    <string name="gender">Gender</string>
+    <string name="calculateBmi">Calculate BMI</string>
+    <string name="recalculateBmi">Recalculate BMI</string>
+</resources>

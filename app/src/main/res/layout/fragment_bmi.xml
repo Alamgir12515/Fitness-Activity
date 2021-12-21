@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical"
+    tools:context=".fragments.BmiFragment">
+
+    <LinearLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/heightHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@string/height"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/heightHeading">
+
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/heightSlider"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_weight="1"
+                android:stepSize="1"
+                android:valueFrom="50"
+                android:valueTo="200"
+                app:thumbRadius="@dimen/_10sdp"
+                app:trackHeight="@dimen/_5sdp" />
+
+            <TextView
+                android:id="@+id/heightText"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/bmi_textview_background"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:text="50 cm"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/weightHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@string/weight"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/heightHeading">
+
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/weightSlider"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_weight="1"
+                android:stepSize="1"
+                android:valueFrom="20"
+                android:valueTo="200"
+                app:thumbRadius="@dimen/_10sdp"
+                app:trackHeight="@dimen/_5sdp" />
+
+            <TextView
+                android:id="@+id/weightText"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/bmi_textview_background"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:text="20 kg"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ageHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@string/age"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/segmented2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            segmentedgroup:sc_border_width="2dp"
+            segmentedgroup:sc_corner_radius="@dimen/_10sdp">
+
+            <RadioButton
+                android:id="@+id/buttonLessThan21"
+                style="@style/RadioButton"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:text="Below 21"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/button21To55"
+                style="@style/RadioButton"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:text="21 - 55"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/buttonGreaterThan55"
+                style="@style/RadioButton"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:text="Above 55"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold" />
+        </info.hoang8f.android.segmented.SegmentedGroup>
+
+        <TextView
+            android:id="@+id/genderHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@string/gender"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/segmentedGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            segmentedgroup:sc_border_width="2dp"
+            segmentedgroup:sc_corner_radius="@dimen/_10sdp">
+
+            <RadioButton
+                android:id="@+id/male"
+                style="@style/RadioButton"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:text="Male"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/female"
+                style="@style/RadioButton"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:text="Female"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold" />
+        </info.hoang8f.android.segmented.SegmentedGroup>
+
+        <android.widget.Button
+            android:id="@+id/calculateBmiButton"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/sign_up_button_background"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:text="@string/calculateBmi"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/resultLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="100"
+        android:background="@drawable/bmi_result_layout_background"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/bmiResultHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:text="Your BMI"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/bmiResultValue"
+            app:layout_constraintEnd_toEndOf="@+id/bmiResultValue"
+            app:layout_constraintStart_toStartOf="@+id/bmiResultValue" />
+
+        <TextView
+            android:id="@+id/bmiResultValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="18.4"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_34ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4" />
+
+        <TextView
+            android:id="@+id/bmiResultCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Overweight"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_32ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bmiResultValue" />
+
+        <android.widget.Button
+            android:id="@+id/recalculateBmiButton"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/login_button_background"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:text="@string/recalculateBmi"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bmiResultCategory" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
