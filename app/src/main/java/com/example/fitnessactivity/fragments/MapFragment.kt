@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.fitnessactivity.R
 import com.example.fitnessactivity.databinding.FragmentMapBinding
+import com.example.fitnessactivity.setWhiteStatusBarColor
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -35,6 +36,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         // Inflate the layout for this fragment
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         _binding = FragmentMapBinding.inflate(inflater, container, false)
+        requireActivity().setWhiteStatusBarColor()
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         return binding.root

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.fitnessactivity.activities.LoginActivity
 import com.example.fitnessactivity.databinding.FragmentProfileBinding
+import com.example.fitnessactivity.setWhiteStatusBarColor
 import com.google.firebase.auth.FirebaseAuth
 
 class ProfileFragment : Fragment() {
@@ -28,6 +29,7 @@ class ProfileFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        requireActivity().setWhiteStatusBarColor()
         binding.button.setOnClickListener {
             signOut()
         }

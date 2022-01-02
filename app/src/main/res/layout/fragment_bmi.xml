@@ -5,236 +5,258 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
+    android:background="@color/bmiBackgroundColor"
     android:orientation="vertical"
     tools:context=".fragments.BmiFragment">
 
     <LinearLayout
         android:id="@+id/contentLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
+        android:gravity="center"
         android:orientation="vertical"
         android:visibility="visible">
 
         <TextView
-            android:id="@+id/heightHeading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:text="@string/height"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_12ssp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="@string/bmi"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_22ssp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_10sdp"
             android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/heightHeading">
+            android:orientation="horizontal">
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/bmiCard"
+                android:layout_width="@dimen/bmi_gender_card_size"
+                android:layout_height="@dimen/bmi_gender_card_size"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/bmiCardColor"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_3sdp">
 
-            <com.google.android.material.slider.Slider
-                android:id="@+id/heightSlider"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_12sdp"
-                android:layout_weight="1"
-                android:stepSize="1"
-                android:valueFrom="50"
-                android:valueTo="200"
-                app:thumbRadius="@dimen/_10sdp"
-                app:trackHeight="@dimen/_5sdp" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    tools:ignore="UseCompoundDrawables">
 
-            <TextView
-                android:id="@+id/heightText"
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/bmi_textview_background"
-                android:gravity="center"
-                android:padding="@dimen/_5sdp"
-                android:text="50 cm"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_10ssp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/male"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="center"
+                        android:text="@string/male"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/card_text_size" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_1sdp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/stepCounterCard"
+                android:layout_width="@dimen/bmi_gender_card_size"
+                android:layout_height="@dimen/bmi_gender_card_size"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/bmiCardColor"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_3sdp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/female"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="center"
+                        android:text="@string/female"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/card_text_size" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/weightHeading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:text="@string/weight"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_12ssp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/heightHeading">
-
-
-            <com.google.android.material.slider.Slider
-                android:id="@+id/weightSlider"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_12sdp"
-                android:layout_weight="1"
-                android:stepSize="1"
-                android:valueFrom="20"
-                android:valueTo="200"
-                app:thumbRadius="@dimen/_10sdp"
-                app:trackHeight="@dimen/_5sdp" />
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/weightText"
-                android:layout_width="@dimen/_50sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/bmi_textview_background"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_40sdp"
                 android:gravity="center"
-                android:padding="@dimen/_5sdp"
-                android:text="20 kg"
+                android:text="@string/height"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_10ssp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </LinearLayout>
+                android:textSize="@dimen/bmi_subheading"
+                tools:ignore="RelativeOverlap" />
 
-        <TextView
-            android:id="@+id/ageHeading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:text="@string/age"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_12ssp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <EditText
+                android:id="@+id/editTextHeight"
+                android:layout_width="@dimen/bmi_value_width"
+                android:layout_height="@dimen/bmi_value_height"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:background="@drawable/bmi_field_background"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="\??"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:textColor="@color/bmiItemTextColor"
+                android:textColorHint="@color/bmiItemTextColor"
+                android:textSize="@dimen/_25sdp"
+                tools:ignore="LabelFor,RelativeOverlap" />
+        </RelativeLayout>
 
-        <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/segmented2"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            segmentedgroup:sc_border_width="2dp"
-            segmentedgroup:sc_corner_radius="@dimen/_10sdp">
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/buttonLessThan21"
-                style="@style/RadioButton"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:text="Below 21"
-                android:textSize="@dimen/_11ssp"
-                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:gravity="center"
+                android:text="@string/weight"
+                android:textColor="@color/white"
+                android:textSize="@dimen/bmi_subheading"
+                tools:ignore="RelativeOverlap" />
 
-            <RadioButton
-                android:id="@+id/button21To55"
-                style="@style/RadioButton"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:text="21 - 55"
-                android:textSize="@dimen/_11ssp"
-                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/editTextWeight"
+                android:layout_width="@dimen/bmi_value_width"
+                android:layout_height="@dimen/bmi_value_height"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:background="@drawable/bmi_field_background"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="\??"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:textColor="@color/bmiItemTextColor"
+                android:textColorHint="@color/bmiItemTextColor"
+                android:textSize="@dimen/_25sdp"
+                tools:ignore="LabelFor,RelativeOverlap" />
+        </RelativeLayout>
 
-            <RadioButton
-                android:id="@+id/buttonGreaterThan55"
-                style="@style/RadioButton"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:text="Above 55"
-                android:textSize="@dimen/_11ssp"
-                android:textStyle="bold" />
-        </info.hoang8f.android.segmented.SegmentedGroup>
-
-        <TextView
-            android:id="@+id/genderHeading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:text="@string/gender"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_12ssp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/segmentedGender"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            segmentedgroup:sc_border_width="2dp"
-            segmentedgroup:sc_corner_radius="@dimen/_10sdp">
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/male"
-                style="@style/RadioButton"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:text="Male"
-                android:textSize="@dimen/_11ssp"
-                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:gravity="center"
+                android:text="@string/age"
+                android:textColor="@color/white"
+                android:textSize="@dimen/bmi_subheading"
+                tools:ignore="RelativeOverlap" />
 
-            <RadioButton
-                android:id="@+id/female"
-                style="@style/RadioButton"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:text="Female"
-                android:textSize="@dimen/_11ssp"
-                android:textStyle="bold" />
-        </info.hoang8f.android.segmented.SegmentedGroup>
+            <EditText
+                android:id="@+id/editTextAge"
+                android:layout_width="@dimen/bmi_value_width"
+                android:layout_height="@dimen/bmi_value_height"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:background="@drawable/bmi_field_background"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="\??"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:textColor="@color/bmiItemTextColor"
+                android:textColorHint="@color/bmiItemTextColor"
+                android:textSize="@dimen/_25sdp"
+                tools:ignore="LabelFor,RelativeOverlap" />
+        </RelativeLayout>
 
         <android.widget.Button
             android:id="@+id/calculateBmiButton"
-            android:layout_width="@dimen/_130sdp"
-            android:layout_height="@dimen/_32sdp"
-            android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginTop="@dimen/_25sdp"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:background="@drawable/sign_up_button_background"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:background="@drawable/bmi_button"
             android:paddingHorizontal="@dimen/_10sdp"
             android:text="@string/calculateBmi"
             android:textAllCaps="false"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="normal" />
 
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/resultLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="100"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:background="@drawable/bmi_result_layout_background"
         android:visibility="visible">
 
@@ -242,59 +264,43 @@
             android:id="@+id/bmiResultHeading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="@dimen/_15sdp"
-            android:text="Your BMI"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_15ssp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/bmiResultValue"
-            app:layout_constraintEnd_toEndOf="@+id/bmiResultValue"
-            app:layout_constraintStart_toStartOf="@+id/bmiResultValue" />
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@string/your_result"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/bmiResultValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
-            android:text="18.4"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_34ssp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:elevation="@dimen/_100sdp"
+            android:text="\??.?"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_40ssp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.4" />
+            app:layout_constraintTop_toBottomOf="@id/bmiResultHeading" />
 
-        <TextView
-            android:id="@+id/bmiResultCategory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:text="Overweight"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_32ssp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bmiResultValue" />
+        <!--        <TextView-->
+        <!--            android:id="@+id/bmiResultCategory"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="@dimen/_5sdp"-->
+        <!--            android:text="Overweight"-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:textSize="@dimen/_32ssp"-->
+        <!--            android:textStyle="bold"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/bmiResultValue" />-->
 
-        <android.widget.Button
-            android:id="@+id/recalculateBmiButton"
-            android:layout_width="@dimen/_130sdp"
-            android:layout_height="@dimen/_32sdp"
-            android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginTop="@dimen/_35sdp"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:background="@drawable/login_button_background"
-            android:paddingHorizontal="@dimen/_10sdp"
-            android:text="@string/recalculateBmi"
-            android:textAllCaps="false"
-            android:textColor="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bmiResultCategory" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

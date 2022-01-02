@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setWhiteStatusBarColor()
+//        setWhiteStatusBarColor()
         navController = findNavController(R.id.nav_host_fragment_activity_main)
         binding.navView.setupWithNavController(navController)
         val destination = intent.getSerializableExtra("Destination") as? Destination
@@ -40,6 +40,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 Destination.DAILY_CHALLENGES -> {
                     navController.navigate(R.id.nav_nearest_gym)
+                }
+                Destination.MORE -> {
+                    navController.navigate(R.id.nav_profile)
                 }
             }
         }

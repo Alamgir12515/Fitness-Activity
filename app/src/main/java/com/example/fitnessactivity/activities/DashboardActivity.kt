@@ -2,8 +2,11 @@ package com.example.fitnessactivity.activities
 
 import android.Manifest
 import android.content.Intent
+import android.os.Build
+import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitnessactivity.addCardViewShadow
 import com.example.fitnessactivity.databinding.ActivityDashboardBinding
@@ -13,13 +16,18 @@ import pub.devrel.easypermissions.EasyPermissions
 private const val REQUEST_CODE_PERMISSIONS = 10
 
 enum class Destination {
-    BMI_CALCULATOR, STEP_COUNTER, WORKOUT_SUGGESTION, VIDEO_SUGGESTION, DAILY_CHALLENGES
+    BMI_CALCULATOR, STEP_COUNTER, WORKOUT_SUGGESTION, VIDEO_SUGGESTION, DAILY_CHALLENGES, MORE
 }
 
 class DashboardActivity : AppCompatActivity() {
     private var PERMISSIONS = arrayOf(
         Manifest.permission.ACCESS_COARSE_LOCATION,
         Manifest.permission.ACCESS_FINE_LOCATION
+    )
+
+    @RequiresApi(Build.VERSION_CODES.Q)
+    private var PERMISSIONS_ABOVE_29 = arrayOf(
+        Manifest.permission.ACTIVITY_RECOGNITION
     )
     private lateinit var binding: ActivityDashboardBinding
 
@@ -40,6 +48,14 @@ class DashboardActivity : AppCompatActivity() {
             }
         }
 
+    private val permReqLauncher2 =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+            val granted = permissions.entries.all { it.value }
+            if (granted) {
+                navigateToMainActivity(Destination.STEP_COUNTER)
+            }
+        }
+
     private fun addClickListeners() {
         binding.bmiCard.setOnClickListener {
             if (EasyPermissions.hasPermissions(
@@ -54,7 +70,7 @@ class DashboardActivity : AppCompatActivity() {
             }
         }
         binding.stepCounterCard.setOnClickListener {
-            navigateToMainActivity(Destination.STEP_COUNTER)
+            goToStepCounter()
         }
         binding.workoutSuggestionCard.setOnClickListener {
             navigateToMainActivity(Destination.WORKOUT_SUGGESTION)
@@ -64,6 +80,26 @@ class DashboardActivity : AppCompatActivity() {
         }
         binding.dailyChallengesCard.setOnClickListener {
             navigateToMainActivity(Destination.DAILY_CHALLENGES)
+        }
+        binding.moreCard.setOnClickListener {
+            navigateToMainActivity(Destination.MORE)
+        }
+    }
+
+    private fun goToStepCounter() {
+        if (SDK_INT >= Build.VERSION_CODES.Q) {
+            if (EasyPermissions.hasPermissions(
+                    this,
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                )
+            ) {
+                navigateToMainActivity(Destination.STEP_COUNTER)
+            } else {
+                permReqLauncher2.launch(PERMISSIONS_ABOVE_29)
+            }
+        } else {
+            navigateToMainActivity(Destination.STEP_COUNTER)
         }
     }
 
@@ -80,6 +116,6 @@ class DashboardActivity : AppCompatActivity() {
         addCardViewShadow(binding.workoutSuggestionCard)
         addCardViewShadow(binding.videoSuggestionCard)
         addCardViewShadow(binding.dailyChallengesCard)
-        addCardViewShadow(binding.logoutCard)
+        addCardViewShadow(binding.moreCard)
     }
 }

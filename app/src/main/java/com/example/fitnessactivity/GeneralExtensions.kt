@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.Toast
+import androidx.annotation.ColorRes
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -47,6 +48,12 @@ fun String.showToastLong(context: Context) {
     Toast.makeText(context, this, Toast.LENGTH_LONG).show()
 }
 
+fun String.printLog(text: Any?) {
+    if (BuildConfig.DEBUG) {
+        Log.e(this, if (text !is String) text.toString() else text)
+    }
+}
+
 fun Activity.addCardViewShadow(card: CardView?) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
         card?.cardElevation = resources.getDimension(R.dimen._6sdp)
@@ -55,6 +62,15 @@ fun Activity.addCardViewShadow(card: CardView?) {
         card?.outlineSpotShadowColor =
             ContextCompat.getColor(this, R.color.cardShadowColor)
     }
+}
+
+fun Activity.setDarkStatusBarColor(@ColorRes color: Int) {
+    val window = window
+    val decorView = window.decorView
+    val wic = WindowInsetsControllerCompat(window, decorView)
+    wic.isAppearanceLightStatusBars = false // true or false as desired.
+    // And then you can set any background color to the status bar.
+    window.statusBarColor = ContextCompat.getColor(this, color)
 }
 
 fun Activity.setWhiteStatusBarColor() {

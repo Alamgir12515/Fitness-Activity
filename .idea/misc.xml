@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/auth_button_background.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/drawable/authentication_edit_text_background.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/drawable/bmi_field_background.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable/bmi_result_layout_background.xml" value="0.19074074074074074" />
         <entry key="app/src/main/res/drawable/bmi_textview_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_video.xml" value="0.31145833333333334" />

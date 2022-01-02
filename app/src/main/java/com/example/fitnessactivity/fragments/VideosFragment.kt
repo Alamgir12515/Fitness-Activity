@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.fitnessactivity.R
+import com.example.fitnessactivity.setWhiteStatusBarColor
 
 class VideosFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requireActivity().setWhiteStatusBarColor()
     }
 
     override fun onCreateView(

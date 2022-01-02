@@ -48,8 +48,7 @@
                     <ImageView
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_50sdp"
-                        android:src="@drawable/log_out"
-                        app:tint="@color/white"
+                        android:src="@drawable/bmi_ic"
                         tools:ignore="ContentDescription" />
 
                     <TextView
@@ -59,7 +58,7 @@
                         android:gravity="center"
                         android:text="@string/bmi_calculator"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/_20ssp" />
+                        android:textSize="@dimen/card_text_size" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -92,20 +91,19 @@
                     tools:ignore="UseCompoundDrawables">
 
                     <ImageView
-                        android:layout_width="@dimen/_80sdp"
-                        android:layout_height="@dimen/_80sdp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_video"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:src="@drawable/step_ic"
                         tools:ignore="ContentDescription" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_minus10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:gravity="center"
                         android:text="@string/step_Counter"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/_16ssp" />
+                        android:textSize="@dimen/card_text_size" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
@@ -152,7 +150,7 @@
                         android:gravity="center"
                         android:text="@string/workoutSuggestions"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/_16ssp" />
+                        android:textSize="@dimen/card_text_size" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -198,7 +196,7 @@
                         android:gravity="center"
                         android:text="@string/videoSuggestions"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/_16ssp" />
+                        android:textSize="@dimen/card_text_size" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
@@ -234,18 +232,18 @@
                     <ImageView
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_50sdp"
-                        android:src="@drawable/log_out"
-                        app:tint="@color/white"
+                        android:src="@drawable/daily_ic"
                         tools:ignore="ContentDescription" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:gravity="center"
                         android:text="@string/dailyChallenges"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/_20ssp" />
+                        android:textSize="@dimen/card_text_size" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -256,7 +254,7 @@
                 android:layout_weight="1" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/logoutCard"
+                android:id="@+id/moreCard"
                 android:layout_width="@dimen/_120sdp"
                 android:layout_height="@dimen/_140sdp"
                 android:layout_marginVertical="@dimen/_10sdp"
@@ -265,7 +263,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/_8sdp"
                 app:cardElevation="@dimen/_3sdp">
 
@@ -280,17 +278,16 @@
                     <ImageView
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_50sdp"
-                        android:src="@drawable/log_out"
-                        app:tint="@color/white"
+                        android:src="@drawable/more_ic"
                         tools:ignore="ContentDescription" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:text="@string/logOut"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_20ssp" />
+                        android:text="@string/more"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/card_text_size" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
