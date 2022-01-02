@@ -5,4 +5,5 @@
     <dimen name="bmi_gender_card_size">@dimen/_95sdp</dimen>
     <dimen name="bmi_value_height">@dimen/_40sdp</dimen>
     <dimen name="bmi_value_width">@dimen/_100sdp</dimen>
+    <dimen name="step_counter_icon_size">@dimen/_24sdp</dimen>
 </resources>

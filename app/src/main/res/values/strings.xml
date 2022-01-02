@@ -10,6 +10,7 @@
     <string name="bmi">BMI</string>
     <string name="nearest_gym">Near Gym</string>
     <string name="stepCounter">Step Count</string>
+    <string name="step__Counter">Step Counter</string>
     <string name="videos">Videos</string>
     <string name="profile">Profile</string>
     <string name="title_activity_dashboard">DashboardActivity</string>
@@ -40,4 +41,6 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="your_result">Your Result</string>
+    <string name="todayStepCount">Today\'s steps\ncount</string>
+    <string name="calculate">Calculate</string>
 </resources>

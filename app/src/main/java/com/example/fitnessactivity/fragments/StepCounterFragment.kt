@@ -11,10 +11,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.fitnessactivity.adapters.DaysRVAdapter
 import com.example.fitnessactivity.databinding.FragmentStepCounterBinding
+import com.example.fitnessactivity.getCurrentData
 import com.example.fitnessactivity.printLog
 import com.example.fitnessactivity.setWhiteStatusBarColor
 import com.example.fitnessactivity.showToastLong
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 class StepCounterFragment : Fragment(), SensorEventListener {
     private var sensorManager: SensorManager? = null
@@ -34,7 +39,6 @@ class StepCounterFragment : Fragment(), SensorEventListener {
         super.onCreate(savedInstanceState)
         // Adding a context of SENSOR_SERVICE aas Sensor Manager
         sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
-
     }
 
     override fun onCreateView(
@@ -43,7 +47,24 @@ class StepCounterFragment : Fragment(), SensorEventListener {
     ): View {
         _binding = FragmentStepCounterBinding.inflate(inflater, container, false)
         requireActivity().setWhiteStatusBarColor()
+        binding.recyclerView.apply {
+            adapter = DaysRVAdapter(this@StepCounterFragment, getDaysOfWeek())
+        }
         return binding.root
+    }
+
+    private fun getDaysOfWeek(): ArrayList<String> {
+        val format: DateFormat = SimpleDateFormat("E-dd", Locale.getDefault())
+        val calendar: Calendar = Calendar.getInstance()
+        calendar.firstDayOfWeek = Calendar.MONDAY
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY)
+        val days = ArrayList<String>()
+        for (i in 0..6) {
+            days.add(format.format(calendar.time))
+            calendar.add(Calendar.DAY_OF_MONTH, 1)
+        }
+        "days".printLog(days)
+        return days
     }
 
     override fun onResume() {
@@ -57,7 +78,7 @@ class StepCounterFragment : Fragment(), SensorEventListener {
         val hasIt =
             (requireActivity().packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_STEP_DETECTOR))
         if (hasIt) {
-            "It has Yay!".showToastLong(requireContext())
+            "Step counter has started.!".showToastLong(requireContext())
         } else "It doesn't have nay!".showToastLong(requireContext())
 
         if (stepSensor == null) {
@@ -68,6 +89,9 @@ class StepCounterFragment : Fragment(), SensorEventListener {
             // Rate suitable for the user interface
             sensorManager?.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_FASTEST)
         }
+        val currentPosition = getDaysOfWeek().indexOf(getCurrentData())
+        "currentPosition".printLog(currentPosition)
+        binding.recyclerView.smoothScrollToPosition(currentPosition)
     }
 
     override fun onSensorChanged(event: SensorEvent?) {

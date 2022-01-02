@@ -1,15 +1,272 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.StepCounterFragment">
 
     <TextView
-        android:id="@+id/counter"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/stepCounterHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/_20sdp"
         android:gravity="center"
-        android:text="Step Counter" />
+        android:text="@string/step__Counter"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold" />
 
-</FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stepCounterHeading"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="7"
+        tools:listitem="@layout/step_counter_calender_layout" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_below="@id/recyclerView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:src="@drawable/step_woman"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/stepCounterHeading2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recyclerView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_toEndOf="@id/imageView2"
+        android:gravity="center"
+        android:text="@string/todayStepCount"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_17ssp"
+        android:textStyle="normal" />
+
+    <LinearLayout
+        android:id="@+id/countLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stepCounterHeading2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_toEndOf="@id/imageView2"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:text="0"
+            android:textColor="@color/bmiBackgroundColor"
+            android:textSize="@dimen/_35ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/counterName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="steps"
+            android:textColor="@color/bmiBackgroundColor"
+            android:textSize="@dimen/_18ssp" />
+    </LinearLayout>
+
+
+    <android.widget.Button
+        android:id="@+id/calculateBmiButton"
+        android:layout_width="@dimen/_110sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:layout_below="@id/countLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_toEndOf="@id/imageView2"
+        android:background="@drawable/calculate_button_background"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:text="@string/calculate"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="normal" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_160sdp"
+        android:layout_below="@id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        app:cardBackgroundColor="@color/bmiBackgroundColor"
+        app:cardCornerRadius="@dimen/_20sdp"
+        app:cardElevation="@dimen/_10sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageViewRibbon"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="@dimen/_minus60sdp"
+                android:layout_marginBottom="@dimen/_minus60sdp"
+                android:src="@drawable/ribbon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/stepIcon"
+                android:layout_width="@dimen/step_counter_icon_size"
+                android:layout_height="@dimen/step_counter_icon_size"
+                android:layout_margin="@dimen/_15sdp"
+                android:src="@drawable/footprint2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/stepCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="2690"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_23ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/stepIcon"
+                app:layout_constraintStart_toEndOf="@id/stepIcon"
+                app:layout_constraintTop_toTopOf="@id/stepIcon" />
+
+            <TextView
+                android:id="@+id/stepsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_minus5sdp"
+                android:text="steps"
+                android:textColor="#B1AEAE"
+                app:layout_constraintEnd_toEndOf="@id/stepCount"
+                app:layout_constraintTop_toBottomOf="@id/stepCount" />
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="#D3D1D1"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="@id/stepCount"
+                app:layout_constraintStart_toStartOf="@id/stepIcon"
+                app:layout_constraintTop_toBottomOf="@id/stepsText" />
+
+            <ImageView
+                android:id="@+id/heartIcon"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:src="@drawable/heart"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line1"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/bpmCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="94"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_23ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/heartIcon"
+                app:layout_constraintEnd_toEndOf="@id/line1"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@id/heartIcon"
+                app:layout_constraintTop_toTopOf="@id/heartIcon" />
+
+            <TextView
+                android:id="@+id/bpmText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_minus5sdp"
+                android:text="bpm"
+                android:textColor="#B1AEAE"
+                app:layout_constraintEnd_toEndOf="@id/bpmCount"
+                app:layout_constraintTop_toBottomOf="@id/bpmCount" />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="#D3D1D1"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="@id/bpmCount"
+                app:layout_constraintStart_toStartOf="@id/stepIcon"
+                app:layout_constraintTop_toBottomOf="@id/bpmText" />
+
+            <ImageView
+                android:id="@+id/caloriesIcon"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:src="@drawable/fire"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line2"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/caloriesCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="9432"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_23ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/caloriesIcon"
+                app:layout_constraintEnd_toEndOf="@id/line2"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@id/caloriesIcon"
+                app:layout_constraintTop_toTopOf="@id/caloriesIcon" />
+
+            <TextView
+                android:id="@+id/caloriesText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_minus5sdp"
+                android:text="calories"
+                android:textColor="#B1AEAE"
+                app:layout_constraintEnd_toEndOf="@id/caloriesCount"
+                app:layout_constraintTop_toBottomOf="@id/caloriesCount" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

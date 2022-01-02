@@ -4,6 +4,7 @@ package com.example.fitnessactivity
 
 import android.app.Activity
 import android.content.Context
+import android.content.res.ColorStateList
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Handler
@@ -71,6 +72,22 @@ fun Activity.setDarkStatusBarColor(@ColorRes color: Int) {
     wic.isAppearanceLightStatusBars = false // true or false as desired.
     // And then you can set any background color to the status bar.
     window.statusBarColor = ContextCompat.getColor(this, color)
+}
+
+fun Context.colorList(@ColorRes id: Int): ColorStateList {
+    return ColorStateList.valueOf(ContextCompat.getColor(this, id))
+}
+
+fun Fragment.getCurrentData(): String {
+    val c = Calendar.getInstance().time
+    val simpleDateFormat = SimpleDateFormat("E-dd", Locale.getDefault())
+    return simpleDateFormat.format(c)
+}
+
+fun String.isCurrentDate(): Boolean {
+    val c = Calendar.getInstance().time
+    val simpleDateFormat = SimpleDateFormat("dd", Locale.getDefault())
+    return simpleDateFormat.format(c) == this
 }
 
 fun Activity.setWhiteStatusBarColor() {
