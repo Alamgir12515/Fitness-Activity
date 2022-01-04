@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/drawable/ic_workout.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable/login_button_background.xml" value="0.19074074074074074" />
         <entry key="app/src/main/res/drawable/sign_up_button_background.xml" value="0.19074074074074074" />
+        <entry key="app/src/main/res/drawable/user_profile_image_backgeround.xml" value="0.28888888888888886" />
         <entry key="app/src/main/res/layout/activity_authentication.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.30512820512820515" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />

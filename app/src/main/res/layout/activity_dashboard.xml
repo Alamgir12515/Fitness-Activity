@@ -33,9 +33,9 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="@dimen/_8sdp"
-                app:cardElevation="@dimen/_3sdp">
+                app:cardBackgroundColor="@color/bmiBackgroundColor"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -49,6 +49,7 @@
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_50sdp"
                         android:src="@drawable/bmi_ic"
+                        app:tint="@color/white"
                         tools:ignore="ContentDescription" />
 
                     <TextView
@@ -57,7 +58,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:gravity="center"
                         android:text="@string/bmi_calculator"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/card_text_size" />
 
                 </LinearLayout>
@@ -78,9 +79,9 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="@dimen/_8sdp"
-                app:cardElevation="@dimen/_3sdp">
+                app:cardBackgroundColor="@color/bmiBackgroundColor"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -94,6 +95,7 @@
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_50sdp"
                         android:src="@drawable/step_ic"
+                        app:tint="@color/white"
                         tools:ignore="ContentDescription" />
 
                     <TextView
@@ -102,7 +104,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:gravity="center"
                         android:text="@string/step_Counter"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/card_text_size" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -124,9 +126,9 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="@dimen/_8sdp"
-                app:cardElevation="@dimen/_3sdp">
+                app:cardBackgroundColor="@color/bmiBackgroundColor"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -139,6 +141,7 @@
                     <ImageView
                         android:layout_width="@dimen/_80sdp"
                         android:layout_height="@dimen/_80sdp"
+                        android:layout_marginBottom="@dimen/_minus5sdp"
                         android:scaleType="centerCrop"
                         android:src="@drawable/ic_workout"
                         tools:ignore="ContentDescription" />
@@ -149,7 +152,7 @@
                         android:layout_marginTop="@dimen/_minus10sdp"
                         android:gravity="center"
                         android:text="@string/workoutSuggestions"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/card_text_size" />
 
                 </LinearLayout>
@@ -170,9 +173,9 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="@dimen/_8sdp"
-                app:cardElevation="@dimen/_3sdp">
+                app:cardBackgroundColor="@color/bmiBackgroundColor"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -185,6 +188,8 @@
                     <ImageView
                         android:layout_width="@dimen/_80sdp"
                         android:layout_height="@dimen/_80sdp"
+                        android:layout_marginBottom="@dimen/_minus5sdp"
+                        android:background="@color/bmiBackgroundColor"
                         android:scaleType="centerCrop"
                         android:src="@drawable/ic_video"
                         tools:ignore="ContentDescription" />
@@ -195,7 +200,7 @@
                         android:layout_marginTop="@dimen/_minus10sdp"
                         android:gravity="center"
                         android:text="@string/videoSuggestions"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/card_text_size" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -217,9 +222,9 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="@dimen/_8sdp"
-                app:cardElevation="@dimen/_3sdp">
+                app:cardBackgroundColor="@color/bmiBackgroundColor"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -233,6 +238,7 @@
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_50sdp"
                         android:src="@drawable/daily_ic"
+                        app:tint="@color/white"
                         tools:ignore="ContentDescription" />
 
                     <TextView
@@ -242,7 +248,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:gravity="center"
                         android:text="@string/dailyChallenges"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/card_text_size" />
 
                 </LinearLayout>
@@ -263,9 +269,9 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="@dimen/_8sdp"
-                app:cardElevation="@dimen/_3sdp">
+                app:cardBackgroundColor="@color/bmiBackgroundColor"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -279,6 +285,7 @@
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_50sdp"
                         android:src="@drawable/more_ic"
+                        app:tint="@color/white"
                         tools:ignore="ContentDescription" />
 
                     <TextView
@@ -286,7 +293,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:text="@string/more"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/card_text_size" />
 
                 </LinearLayout>
