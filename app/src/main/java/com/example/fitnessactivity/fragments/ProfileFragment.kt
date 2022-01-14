@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.fitnessactivity.R
+import com.example.fitnessactivity.activities.ContactActivity
+import com.example.fitnessactivity.activities.EditProfileActivity
 import com.example.fitnessactivity.activities.LoginActivity
 import com.example.fitnessactivity.databinding.FragmentProfileBinding
 import com.example.fitnessactivity.setDarkStatusBarColor
@@ -33,6 +35,14 @@ class ProfileFragment : Fragment() {
         requireActivity().setDarkStatusBarColor(R.color.bmiBackgroundColor)
         binding.logoutCard.setOnClickListener {
 //            signOut()
+        }
+        binding.editProfileCard.setOnClickListener {
+            val intent = Intent(requireContext(), EditProfileActivity::class.java)
+            startActivity(intent)
+        }
+        binding.contactUsCard.setOnClickListener {
+            val intent = Intent(requireContext(), ContactActivity::class.java)
+            startActivity(intent)
         }
         return binding.root
     }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="profileFieldStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">@dimen/_11ssp</item>
+        <item name="android:textColorHint">#D6D7E3</item>
+        <item name="android:paddingStart">@dimen/_10sdp</item>
+        <item name="android:background">@drawable/user_info_border_style</item>
+    </style>
+</resources>

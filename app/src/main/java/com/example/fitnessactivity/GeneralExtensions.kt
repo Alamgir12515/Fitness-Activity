@@ -4,8 +4,11 @@ package com.example.fitnessactivity
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
@@ -62,6 +65,55 @@ fun Activity.addCardViewShadow(card: CardView?) {
             ContextCompat.getColor(this, R.color.cardShadowColor)
         card?.outlineSpotShadowColor =
             ContextCompat.getColor(this, R.color.cardShadowColor)
+    }
+}
+
+fun Activity.contactMessenger() {
+    val messengerUrl: String = if (isMessengerAppInstalled()) {
+        "fb-messenger://user/alam.chandio.148/"
+    } else {
+        "https://www.messenger.com/t/alam.chandio.148/"
+    }
+    val messengerIntent = Intent(Intent.ACTION_VIEW)
+    messengerIntent.data = Uri.parse(messengerUrl)
+    startActivity(messengerIntent)
+}
+
+fun Activity.isMessengerAppInstalled(): Boolean {
+    return try {
+        applicationContext.packageManager.getApplicationInfo(
+            "com.facebook.orca",
+            0
+        )
+        true
+    } catch (e: PackageManager.NameNotFoundException) {
+        false
+    }
+}
+
+fun Activity.getWhatsappIntent(): Intent {
+    val maqsadContactNumber = "923468954833"
+    try {
+        packageManager.getPackageInfo("com.whatsapp", 0)
+        return Intent(
+            Intent.ACTION_VIEW,
+            Uri.parse("https://api.whatsapp.com/send?phone=$maqsadContactNumber")
+        )
+    } catch (e: java.lang.Exception) {
+        return when (Build.VERSION.SDK_INT > 21) {
+            true -> {
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://api.whatsapp.com/send?phone=$maqsadContactNumber")
+                )
+            }
+            false -> {
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://play.google.com/store/apps/details?id=com.whatsapp")
+                )
+            }
+        }
     }
 }
 

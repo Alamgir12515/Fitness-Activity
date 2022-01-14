@@ -43,4 +43,9 @@
     <string name="your_result">Your Result</string>
     <string name="todayStepCount">Today\'s steps\ncount</string>
     <string name="calculate">Calculate</string>
+    <string name="editProfile">Edit Profile</string>
+    <string name="saveChanges">Save Changes</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="messenger">Messenger</string>
+    <string name="contactUs">Contact Us</string>
 </resources>
