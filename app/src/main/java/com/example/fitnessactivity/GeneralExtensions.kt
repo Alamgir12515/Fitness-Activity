@@ -8,6 +8,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.content.res.Configuration
+import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Handler
@@ -15,6 +16,7 @@ import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.Toast
@@ -22,6 +24,7 @@ import androidx.annotation.ColorRes
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import java.text.SimpleDateFormat
@@ -79,6 +82,31 @@ fun Activity.contactMessenger() {
     startActivity(messengerIntent)
 }
 
+fun NestedScrollView.smoothScrollTo(view: View) {
+    var distance = view.top
+    var viewParent = view.parent
+    //traverses 10 times
+    for (i in 0..9) {
+        if ((viewParent as View) === this) break
+        distance += (viewParent as View).top
+        viewParent = viewParent.getParent()
+    }
+    smoothScrollTo(0, distance)
+}
+
+fun Activity.addCardViewShadow(
+    card: CardView?,
+    elevation: Float = resources.getDimension(R.dimen._6sdp)
+) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        card?.cardElevation = elevation
+        card?.outlineAmbientShadowColor =
+            ContextCompat.getColor(this, R.color.cardShadowColor)
+        card?.outlineSpotShadowColor =
+            ContextCompat.getColor(this, R.color.cardShadowColor)
+    }
+}
+
 fun Activity.isMessengerAppInstalled(): Boolean {
     return try {
         applicationContext.packageManager.getApplicationInfo(
@@ -117,6 +145,20 @@ fun Activity.getWhatsappIntent(): Intent {
     }
 }
 
+fun Activity.makeStatusBarTransparent() {
+    window.apply {
+        clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            decorView.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        } else {
+            decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        }
+        statusBarColor = Color.TRANSPARENT
+    }
+}
+
 fun Activity.setDarkStatusBarColor(@ColorRes color: Int) {
     val window = window
     val decorView = window.decorView
@@ -142,13 +184,13 @@ fun String.isCurrentDate(): Boolean {
     return simpleDateFormat.format(c) == this
 }
 
-fun Activity.setWhiteStatusBarColor() {
+fun Activity.setWhiteStatusBarColor(@ColorRes id: Int = R.color.backgroundColor) {
     val window = window
     val decorView = window.decorView
     val wic = WindowInsetsControllerCompat(window, decorView)
     wic.isAppearanceLightStatusBars = true // true or false as desired.
     // And then you can set any background color to the status bar.
-    window.statusBarColor = ContextCompat.getColor(this, R.color.backgroundColor)
+    window.statusBarColor = ContextCompat.getColor(this, id)
 }
 //fun ImageView.select(context: Context) {
 //    this.setColorFilter(ContextCompat.getColor(context, R.color.primaryVariant))

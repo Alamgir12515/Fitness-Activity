@@ -8,6 +8,7 @@ import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.example.fitnessactivity.R
 import com.example.fitnessactivity.addCardViewShadow
 import com.example.fitnessactivity.databinding.ActivityDashboardBinding
 import com.example.fitnessactivity.setWhiteStatusBarColor
@@ -35,7 +36,7 @@ class DashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setWhiteStatusBarColor()
+        setWhiteStatusBarColor(R.color.grey)
         addCardShadows()
         addClickListeners()
     }
@@ -73,7 +74,7 @@ class DashboardActivity : AppCompatActivity() {
             goToStepCounter()
         }
         binding.workoutSuggestionCard.setOnClickListener {
-            navigateToMainActivity(Destination.WORKOUT_SUGGESTION)
+            startActivity(Intent(this, WorkoutSuggestionsActivity::class.java))
         }
         binding.videoSuggestionCard.setOnClickListener {
             navigateToMainActivity(Destination.VIDEO_SUGGESTION)

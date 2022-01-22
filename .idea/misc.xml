@@ -16,22 +16,28 @@
         <entry key="app/src/main/res/drawable/login_button_background.xml" value="0.19074074074074074" />
         <entry key="app/src/main/res/drawable/messenger_icon.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable/sign_up_button_background.xml" value="0.19074074074074074" />
+        <entry key="app/src/main/res/drawable/suggestion_layout_background.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable/user_info_border_style.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/user_profile_image_backgeround.xml" value="0.28888888888888886" />
         <entry key="app/src/main/res/layout/activity_authentication.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_body_part.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/activity_contact.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.30512820512820515" />
         <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_exercise.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_workout_suggestions.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/content_dashboard.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/exercises_list_item.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_bmi.xml" value="0.27230792345812216" />
         <entry key="app/src/main/res/layout/fragment_map.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.2907692307692308" />
         <entry key="app/src/main/res/layout/fragment_step_counter.xml" value="0.2953125" />
-        <entry key="app/src/main/res/layout/fragment_videos.xml" value="0.2824074074074074" />
+        <entry key="app/src/main/res/layout/fragment_videos.xml" value="0.27699071812408405" />
         <entry key="app/src/main/res/layout/step_counter_calender_layout.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/video_list_item.xml" value="0.375" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
     </option>

@@ -34,7 +34,7 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         requireActivity().setDarkStatusBarColor(R.color.bmiBackgroundColor)
         binding.logoutCard.setOnClickListener {
-//            signOut()
+            signOut()
         }
         binding.editProfileCard.setOnClickListener {
             val intent = Intent(requireContext(), EditProfileActivity::class.java)

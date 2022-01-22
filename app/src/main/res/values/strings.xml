@@ -48,4 +48,10 @@
     <string name="whatsapp">WhatsApp</string>
     <string name="messenger">Messenger</string>
     <string name="contactUs">Contact Us</string>
+    <string name="weightLossExercises">Weight Loss Exercises</string>
+    <string name="weightGainExercises">Weight Gain Exercises</string>
+    <string name="bodyBuildingExercises">Body Building Exercises</string>
+    <string name="bodyBuilding">Body Building</string>
+    <string name="weightLoss">Weight Loss</string>
+    <string name="weightGain">Weight Gain</string>
 </resources>

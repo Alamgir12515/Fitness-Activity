@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitnessactivity.R
 import com.example.fitnessactivity.activities.DashboardActivity
-import com.example.fitnessactivity.activities.models.User
+import com.example.fitnessactivity.models.User
 import com.example.fitnessactivity.databinding.ActivitySignUpBinding
 import com.example.fitnessactivity.makeGone
 import com.example.fitnessactivity.makeVisible

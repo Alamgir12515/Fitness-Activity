@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context=".fragments.EditProfileFragment">
+    tools:context=".activities.EditProfileActivity">
 
     <ScrollView
         android:id="@+id/scroll"
@@ -49,11 +49,13 @@
                 app:layout_constraintTop_toTopOf="@id/profileTextView"
                 tools:ignore="ContentDescription" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:id="@+id/userProfileView"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_25sdp"
+                android:gravity="center"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +78,7 @@
                     tools:ignore="ContentDescription,UnusedAttribute" />
 
                 <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:orientation="vertical"
@@ -115,7 +117,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_5sdp"
                         android:text="@string/email" />
 
@@ -141,7 +143,85 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:text="@string/age" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_36sdp"
+                        android:layout_marginHorizontal="@dimen/_5sdp"
+                        android:elevation="0dp"
+                        app:cardCornerRadius="@dimen/_5sdp"
+                        app:cardElevation="0dp">
+
+                        <EditText
+                            android:id="@+id/ageField"
+                            style="@style/profileFieldStyle"
+                            android:hint="@string/age"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:textColorHint="#D6D7E3" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:text="@string/height" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_36sdp"
+                        android:layout_marginHorizontal="@dimen/_5sdp"
+                        android:elevation="0dp"
+                        app:cardCornerRadius="@dimen/_5sdp"
+                        app:cardElevation="0dp">
+
+                        <EditText
+                            android:id="@+id/heightField"
+                            style="@style/profileFieldStyle"
+                            android:hint="@string/height"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:textColorHint="#D6D7E3" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:text="@string/weight" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_36sdp"
+                        android:layout_marginHorizontal="@dimen/_5sdp"
+                        android:elevation="0dp"
+                        app:cardCornerRadius="@dimen/_5sdp"
+                        app:cardElevation="0dp">
+
+                        <EditText
+                            android:id="@+id/weightField"
+                            style="@style/profileFieldStyle"
+                            android:hint="@string/weight"
+                            android:importantForAutofill="no"
+                            android:inputType="number"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:textColorHint="#D6D7E3" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_5sdp"
                         android:text="@string/phoneNumber" />
 
@@ -156,7 +236,6 @@
                         <EditText
                             android:id="@+id/phoneNumberField"
                             style="@style/profileFieldStyle"
-                            android:focusable="false"
                             android:hint="@string/phoneNumber"
                             android:importantForAutofill="no"
                             android:inputType="phone"
@@ -183,7 +262,7 @@
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

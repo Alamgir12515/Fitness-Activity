@@ -55,7 +55,5 @@ class DaysRVAdapter(
             binding.dayDate.setTextColor(ContextCompat.getColor(fragment.requireContext(), R.color.white))
             binding.dayName.setTextColor(ContextCompat.getColor(fragment.requireContext(), R.color.white))
         }
-
-
     }
 }
