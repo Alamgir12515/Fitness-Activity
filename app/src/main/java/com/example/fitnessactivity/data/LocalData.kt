@@ -6,33 +6,34 @@ import com.example.fitnessactivity.models.Exercise
 import com.example.fitnessactivity.models.VideoModel
 
 object LocalData {
+    //https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fabs_1.gif?alt=media&token=bbd63896-70d4-452a-b494-01ad65e89f53
 
     fun getLegsExercises(): List<Exercise> {
         return listOf(
             Exercise(
                 "Goblet squat: 3 sets of 12 reps",
                 "Holding the weight or object in front of your chest, stand with feet just outside hip width. Drive hips back and then down, as if sitting in a chair.\nKeep chest up and focus on your hips breaking below your knee crease. Push into heels, squeeze glutes (your booty!), and stand back up.",
-                R.drawable.leg_1
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fleg_1.gif?alt=media&token=bbd954b4-a07d-4313-b1d7-50017154e64d"
             ),
             Exercise(
                 "Pendulum lunges: 3 sets of 10 reps on each leg",
                 "Hold the weight or object in front of your chest. Lunge forward with right leg, keeping left leg stationary until the reps are done.\nKeeping your weight in your right heel, push out of heel to stand up and immediately step into a reverse lunge with right leg in the back.\nComplete all reps on one side before switching legs.",
-                R.drawable.leg_2
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fleg_2.gif?alt=media&token=b5a6be18-b7aa-4ed7-b07d-e008ff3f97f9"
             ),
             Exercise(
                 "Romanian deadlifts: 3 sets of 12 reps",
                 "Standing tall with feet under hips, hold weights by your sides in both hands (or hold onto the handle of a broom or mop like a barbell). Bend knees slightly, and then hinge at your hips.\nKeeping core engaged, drive hips back until you feel a stretch in your hamstrings. Squeeze glutes and return to standing.",
-                R.drawable.leg_3
+               "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fleg_3.gif?alt=media&token=127b0b40-3791-4861-9813-2ed75c406b16"
             ),
             Exercise(
                 "Step-ups: 3 sets of 10 reps on each leg",
                 "Find a stool, bench, or box you can step on (the first step of a staircase can work, too, but will be a little short). Hold one weight at your chest and lift right foot, placing it on the box.\nKeeping chest up and right shin vertical, push into right heel and step up onto the box. Maintain control as you return to the starting position.\nIf you don’t have a box or other object to step onto: Start kneeling, step your right foot forward, and stand up. Then return to the kneeling position.",
-                R.drawable.leg_4
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fleg_4.gif?alt=media&token=58b53cbb-c5df-45b6-98ff-0532f4588017"
             ),
             Exercise(
                 "Weighted hip bridges: 3 sets of 12 reps",
                 "Lie on your back with knees bent and feet flat on the floor. You should be able to touch your heels with your fingertips.\nHold a dumbbell, kettlebell, or other item in front of your hips. Brace core, squeeze glutes, push into heels, and lift your hips until shoulders, hips, and knees are in a line. Slowly lower your hips back to the floor.",
-                R.drawable.leg_5
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fleg_5.gif?alt=media&token=6c9c3a13-268f-4b58-8ecb-abcab6494cde"
             ),
         )
     }
@@ -140,7 +141,7 @@ object LocalData {
                         "Lift your arms overhead as you jump.\n" +
                         "Upon landing, lower yourself back down to the squatting position.\n" +
                         "Do 2 to 3 sets of 10 repetitions.",
-                R.drawable.abs_1
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fabs_1.gif?alt=media&token=bbd63896-70d4-452a-b494-01ad65e89f53"
             ),
             Exercise(
                 "Reverse lunge knee-ups",
@@ -150,7 +151,7 @@ object LocalData {
                         "Upon landing, move back into the starting lunge position.\n" +
                         "Continue for 30 seconds.\n" +
                         "Then do the opposite side.",
-                R.drawable.abs_2
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fabs_2.gif?alt=media&token=3dd53088-dfec-4919-ba9e-76f367ccf3d1"
             ),
             Exercise(
                 "Burpees",
@@ -160,7 +161,7 @@ object LocalData {
                         "Jump your feet forward to the outside of your hands, coming into a squat.\n" +
                         "Explosively jump up and lift your arms overhead.\n" +
                         "Do 2 to 3 sets of 8 to 12 repetitions.",
-                R.drawable.abs_3
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fabs_3.gif?alt=media&token=24ca8f3c-4659-4c1c-884d-60881fa359d9"
             ),
             Exercise(
                 "Clapping push-ups",
@@ -170,7 +171,7 @@ object LocalData {
                         "Clap your hands together.\n" +
                         "Return to the starting position.\n" +
                         "Continue for 30 seconds.",
-                R.drawable.abs_4
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fabs_4.gif?alt=media&token=4babca44-3c62-4bc7-9ffc-03fc24a31b0d"
             ),
             Exercise(
                 "Box jumps",
@@ -179,7 +180,7 @@ object LocalData {
                         "Lift your arms up as you jump to gain momentum.\n" +
                         "Jump up and backward off the box, gently landing with bent knees.\n" +
                         "Do 2 to 3 sets of 8 to 12 repetitions.",
-                R.drawable.abs_5
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fabs_5.gif?alt=media&token=f8d91518-21fb-40f6-ab4e-2dccc8921ecb"
             ),
         )
     }
@@ -199,7 +200,7 @@ object LocalData {
                         "Tips:\n" +
                         "Keep those wrists straight to avoid injuries.\n" +
                         "Move your hands closer together at the top of the movement.",
-                R.drawable.chest_1
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fchest_1.gif?alt=media&token=db3ae29d-687f-4eb2-b65b-75723db353b3"
             ),
             Exercise(
                 "Resistance band fly",
@@ -212,7 +213,7 @@ object LocalData {
                         "Return your arms to the wide position over a 3-second count.\n" +
                         "Try 8–12 reps." +
                         "\nTip: Keep your elbows below your shoulders.",
-                R.drawable.chest_2
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fchest_2.gif?alt=media&token=424770cb-b153-4926-a384-2b4327ab6bba"
             ),
             Exercise(
                 "Resistance band push-up",
@@ -226,7 +227,7 @@ object LocalData {
                         "Tips:\n" +
                         "If you’re feeling brave, you can add a knee tuck for an extra core workout.\n" +
                         "You can add a side knee tuck, too, but it’s not for the faint of heart.",
-                R.drawable.chest_3
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fchest_3.gif?alt=media&token=b17e7736-902d-4ecf-ac79-574c7cfc61a6"
             ),
             Exercise(
                 "Straight-arm pulldown",
@@ -242,7 +243,7 @@ object LocalData {
                         "Tips:\n" +
                         "Try a resistance band door anchor. If you’ll be doing this move a lot, it’s definitely worth the small investment.\n" +
                         "Pull your shoulders slightly down and back and try not to let them roll forward or shrug up toward your ears throughout each rep.",
-                R.drawable.chest_4
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fchest_4.gif?alt=media&token=cd9b2537-34ef-4135-beb8-f474002f5f50"
             ),
             Exercise(
                 "Resistance band row",
@@ -254,7 +255,7 @@ object LocalData {
                         "Slowly return to the starting position and repeat.\n" +
                         "Try 10–14 reps.\n" +
                         "Tip: Sit up tall and straight by engaging your abs.",
-                R.drawable.chest_5
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fchest_5.gif?alt=media&token=926be387-5e2f-4fbd-87ca-d3b034fe7c1d"
             ),
         )
     }
@@ -271,7 +272,7 @@ object LocalData {
                         "Repeat in the other direction.\n" +
                         "Repeat 2–4 times.\n" +
                         "Pro tip: Imagine there’s a string pulling your head straight up.\n",
-                R.drawable.shoulder_1
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fshoulder_1.gif?alt=media&token=80150ad7-24d6-45f2-972d-e40a8fa194f3"
             ),
             Exercise(
                 "Shoulder pendulum swing",
@@ -285,7 +286,7 @@ object LocalData {
                         "Reverse the direction after 1 minute.\n" +
                         "Repeat for a total of 4–6 minutes on both arms.\n" +
                         "Pro tip: You can sit or stand for this exercise. Do what feels the most comfortable.",
-                R.drawable.shoulder_2
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fshoulder_2.gif?alt=media&token=9594c353-2d64-4a58-9404-825261fc985c"
             ),
             Exercise(
                 "Dumbbell shoulder press",
@@ -296,7 +297,7 @@ object LocalData {
                         "Extend through elbows as you lift the weights overhead.\n" +
                         "Slowly return to the starting position.\n" +
                         "Do 10–15 reps.\n",
-                R.drawable.shoulder_3
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fshoulder_3.gif?alt=media&token=4188ee62-5b0a-49fd-b3fc-52e81da28594"
             ),
             Exercise(
                 "Reverse fly",
@@ -309,7 +310,7 @@ object LocalData {
                         "Slowly lower the weights back to the starting position.\n" +
                         "Do 10–15 reps.\n" +
                         "Pro tip: Don’t hunch or arch your back.",
-                R.drawable.shoulder_4
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fshoulder_4.gif?alt=media&token=24b6df15-06e4-4a97-8f38-2c78b49e3e59"
             ),
             Exercise(
                 "Standing row",
@@ -324,7 +325,7 @@ object LocalData {
                         "Return to the starting position.\n" +
                         "Do 10–15 reps.\n" +
                         "Pro tip: Opt for a light weight so you can ease into the motion.",
-                R.drawable.shoulder_5
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fshoulder_5.gif?alt=media&token=ce3d2110-b28a-4817-a229-322ae86c9abe"
             ),
         )
     }
@@ -337,7 +338,7 @@ object LocalData {
                         "Directions:\n" +
                         "Stand with arms extended. Hold a resistance band taut in front of you with both hands so the band is parallel to the ground.\n" +
                         "Keeping arms straight, pull band to chest by moving arms out to sides. Initiate the movement from your mid-back, squeeze shoulder blades together and keep spine straight. Slowly return to start and repeat.",
-                R.drawable.back_1
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fback_1.gif?alt=media&token=1c6a1a10-72b0-4b1f-9c68-49ca68953d95"
             ),
             Exercise(
                 "Lat pulldown",
@@ -346,7 +347,7 @@ object LocalData {
                         "If you’re using a machine, position pad so it’s touching thighs. Stand up and grab bar wider than shoulder-width apart, then sit back down.\n" +
                         "Begin to pull bar down toward chest, bending elbows and pointing them toward ground. Engage upper and mid-back throughout the move. Keep torso straight, and don’t allow yourself to lean backward.\n" +
                         "Complete 1 to 3 sets of 12 reps.",
-                R.drawable.back_2
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fback_2.gif?alt=media&token=3f317968-6131-4817-a67f-d09cb95e1678"
             ),
             Exercise(
                 "Back extension",
@@ -356,7 +357,7 @@ object LocalData {
                         "Extend arms forward. Bend first at waist, then slowly raise upper body toward sky. Engage core and glutes and keep feet on floor.\n" +
                         "Pause for a moment at the top, then slowly lower down.\n" +
                         "Complete 1 to 3 sets of 12 reps.",
-                R.drawable.back_3
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fback_3.gif?alt=media&token=9f3b70ee-5e36-4c44-96e3-364e280816da"
             ),
             Exercise(
                 "TRX row",
@@ -366,7 +367,7 @@ object LocalData {
                         "Keeping back straight, row upward by pulling yourself toward ceiling. Keep elbows close to sides.\n" +
                         "Extend arms and return to start.\n" +
                         "Complete 1 to 3 sets of 12 reps.",
-                R.drawable.back_4
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fback_4.gif?alt=media&token=9988eea6-1459-438b-8a08-7b7e409ca93d"
             ),
             Exercise(
                 "Wood chop",
@@ -376,7 +377,7 @@ object LocalData {
                         "Rotate hips to the left and bring dumbbell or ball down to the outside of left knee in a sweeping movement.\n" +
                         "On the ascent, twist trunk back toward the right and, keeping arms straight, bring dumbbell or\u2028ball back up above the right side of your head in an explosive but controlled movement. This movement should mimic a chopping motion, hence the name.\n" +
                         "Complete 12 reps on each side for 1 to 3 sets total.\n",
-                R.drawable.back_5
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fback_5.gif?alt=media&token=59fcad45-97e0-44a7-a800-899f28cb07e3"
             ),
         )
     }
@@ -397,7 +398,7 @@ object LocalData {
                         "you can no longer pull your hands back in with a straight spine\n" +
                         "before your chest touches the ground\n" +
                         "To make it more challenging, slide your arms from a plank and keep your knees off the ground throughout the exercise.",
-                R.drawable.arms_1
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Farms_1.gif?alt=media&token=ddd87a8c-6fdf-44bb-aa03-d9ddbd8fd73e"
             ),
             Exercise(
                 "Ball slams",
@@ -413,7 +414,7 @@ object LocalData {
                         "This movement should be done fluidly. Once you finish a rep, use the slight bounce of the ball to launch you into the next set. Do your best to keep moving through these repetitions to keep your heart rate up and the movements fluid.\n" +
                         "Start with as many reps as possible in 20 to 30 seconds for three to five sets. Be sure to take adequate rest between sets.\n" +
                         "Stop when you’re fatigued and can no longer safely hold the ball over your head or keep your spine straight throughout the movement.",
-                R.drawable.arms_2
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Farms_2.gif?alt=media&token=f6ea49a3-bede-40c5-8c8b-4cfdb363a253"
             ),
             Exercise(
                 "Dumbbell bench press",
@@ -428,7 +429,7 @@ object LocalData {
                         "Slowly lower the dumbbells back to your chest with your elbows at your sides. Keep your elbows in tight throughout the entire movement to work your triceps.\n" +
                         "Tips:\n" +
                         "If you don’t have a bench available, you can do these on the floor or on a step bench.",
-                R.drawable.arms_3
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Farms_3.gif?alt=media&token=691d0013-b658-4561-b1cd-e4c1352f629a"
             ),
             Exercise(
                 "Bicep curls with band",
@@ -439,7 +440,7 @@ object LocalData {
                         "Slowly lower your hands back down to your sides.\n" +
                         "Tips:\n" +
                         "Don’t swing or lean back to bring your hands up. Your body should remain completely upright and still except for your arms.",
-                R.drawable.arms_4
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Farms_4.gif?alt=media&token=f0dacabf-5afc-42d3-8eb3-1876c7152ece"
             ),
             Exercise(
                 "TRX or supine barbell rows",
@@ -455,7 +456,7 @@ object LocalData {
                         "To make the rows easier, stand more upright by walking your feet closer to the anchor point. You should be upright enough that you can keep your hips and back straight throughout the entire movement without arching or bending your spine.\n" +
                         "If you want more of a challenge, walk your feet farther away from your hands.\n" +
                         "If you don’t have TRX straps or rings, you can use an empty barbell on a rack. Be careful to position your head under the rack so that you’re pulling the bar back into it instead of toward the front of the hooks. You can adjust the height of the bar to make it easier (up) or harder (down).",
-                R.drawable.arms_5
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Farms_5.gif?alt=media&token=d6626fca-1539-4967-83bc-cb0f3a4d227d"
             ),
         )
     }

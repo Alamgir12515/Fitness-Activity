@@ -26,10 +26,20 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
+import com.example.fitnessactivity.models.BmiCategory
 import com.google.android.material.tabs.TabLayout
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.system.exitProcess
+
+fun Float.getBmiCategory(): BmiCategory {
+    return when {
+        this < 18.5 -> BmiCategory.Underweight
+        this in 18.5..24.9 -> BmiCategory.Normal
+        this in 25.0..29.9 -> BmiCategory.Overweight
+        else -> BmiCategory.Obese
+    }
+}
 
 fun View.makeVisible() {
     this.visibility = View.VISIBLE
@@ -192,34 +202,6 @@ fun Activity.setWhiteStatusBarColor(@ColorRes id: Int = R.color.backgroundColor)
     // And then you can set any background color to the status bar.
     window.statusBarColor = ContextCompat.getColor(this, id)
 }
-//fun ImageView.select(context: Context) {
-//    this.setColorFilter(ContextCompat.getColor(context, R.color.primaryVariant))
-//}
-//
-//fun ImageView.unSelect(context: Context) {
-//    this.setColorFilter(ContextCompat.getColor(context, R.color.darkPrimary))
-//}
-
-//
-//fun DashboardActivity.getSavedVideoId(): String? {
-//    val preferences: SharedPreferences =
-//        applicationContext.getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
-//    return if (isMcat()) preferences.getString(
-//        "MCAT_VIDEO_ID",
-//        ""
-//    ) else preferences.getString("VIDEO_ID", "")
-//}
-
-//
-//fun Activity.saveUserState(value: Boolean, phoneNumber: String) {
-//    val preferences: SharedPreferences =
-//        applicationContext.getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
-//    val editor: SharedPreferences.Editor = preferences.edit()
-//    editor.putBoolean("USER_STATE", value)
-//    editor.putString("PHONE_NUMBER", phoneNumber)
-//    editor.apply()
-//    editor.commit()
-//}
 
 fun Long.toDateString(): String {
     return SimpleDateFormat(

@@ -1,4 +1,4 @@
-package com.example.fitnessactivity.activities.activities
+package com.example.fitnessactivity.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,11 +7,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitnessactivity.R
-import com.example.fitnessactivity.activities.DashboardActivity
-import com.example.fitnessactivity.models.User
 import com.example.fitnessactivity.databinding.ActivitySignUpBinding
 import com.example.fitnessactivity.makeGone
 import com.example.fitnessactivity.makeVisible
+import com.example.fitnessactivity.models.User
 import com.example.fitnessactivity.showToastShort
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -42,6 +41,9 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
                     Log.e("TAG", "createUserWithEmail:success")
                     val user = User(
                         binding.nameEditText.text.toString(),
+                        binding.ageEditText.text.toString().toInt(),
+                        binding.heightEditText.text.toString().toInt(),
+                        binding.weightEditText.text.toString().toInt(),
                         binding.phoneEditText.text.toString(),
                         email
                     )
@@ -50,6 +52,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
                             if (taskAdd.isSuccessful) {
                                 updateUI(mAuth?.currentUser)
                             } else {
+                                Log.e("UserSignUp", taskAdd.exception.toString())
                                 showToastShort("User signUp add failed!")
                             }
                         }
@@ -86,10 +89,37 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun validateFields(): Boolean {
         UIUtil.hideKeyboard(this)
+        val isAgeEntered =
+            binding.ageEditText.text.isNotBlank() && (!binding.ageEditText.text.startsWith("0"))
+        val isHeightValid =
+            binding.heightEditText.text.isNotBlank() && binding.heightEditText.text.toString()
+                .toInt() > 0
+        val isWeightValid =
+            binding.weightEditText.text.isNotBlank() && binding.weightEditText.text.toString()
+                .toInt() > 0
         var result = true
         val isEmailValid =
             android.util.Patterns.EMAIL_ADDRESS.matcher(binding.emailEditText.text.toString())
                 .matches()
+        if (isAgeEntered) {
+            val age = binding.ageEditText.text.toString().toInt()
+            result = if (age > 0) {
+                true
+            } else {
+                binding.ageEditText.error = "Please enter valid age!"
+                false
+            }
+        } else {
+            binding.ageEditText.error = "Please enter valid age!"
+        }
+        if (!isHeightValid) {
+            binding.heightEditText.error = "Please enter valid height!"
+            result = false
+        }
+        if (!isWeightValid) {
+            binding.weightEditText.error = "Please enter valid weight!"
+            result = false
+        }
         if (!isEmailValid) {
             binding.emailEditText.error = "Please enter valid email!"
             result = false

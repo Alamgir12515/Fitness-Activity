@@ -8,4 +8,5 @@
     <dimen name="step_counter_icon_size">@dimen/_24sdp</dimen>
     <dimen name="body_parts_card_height">@dimen/_100sdp</dimen>
     <dimen name="body_parts_card_weight">@dimen/_100sdp</dimen>
+    <dimen name="field_top_margin">@dimen/_13sdp</dimen>
 </resources>

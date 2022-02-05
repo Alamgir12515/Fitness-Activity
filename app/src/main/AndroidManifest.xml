@@ -16,6 +16,9 @@
         android:theme="@style/Theme.FitnessActivity"
         tools:ignore="AllowBackup">
         <activity
+            android:name=".activities.DailyChallengesActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.ExerciseActivity"
             android:exported="false" />
         <activity
@@ -70,7 +73,7 @@
             android:windowSoftInputMode="adjustResize"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activities.activities.SignUpActivity"
+            android:name=".activities.SignUpActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/WhiteStatusBar"

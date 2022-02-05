@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitnessactivity.R
 import com.example.fitnessactivity.databinding.ActivityWorkoutSuggestionsBinding
+import com.example.fitnessactivity.misc.GlobalSingleton
 import com.example.fitnessactivity.models.BodyPart
 import com.example.fitnessactivity.setDarkStatusBarColor
 
@@ -16,6 +17,14 @@ class WorkoutSuggestionsActivity : AppCompatActivity() {
         setContentView(binding.root)
         setDarkStatusBarColor(R.color.black)
         addClickListeners()
+        addUserObserver()
+    }
+
+
+    private fun addUserObserver() {
+        GlobalSingleton.getCurrentUserLiveData().observe(this) { user ->
+            binding.userName.text = user?.name?.replace(" ", "\n")
+        }
     }
 
     private fun addClickListeners() {

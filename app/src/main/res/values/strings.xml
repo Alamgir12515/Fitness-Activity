@@ -43,6 +43,7 @@
     <string name="your_result">Your Result</string>
     <string name="todayStepCount">Today\'s steps\ncount</string>
     <string name="calculate">Calculate</string>
+    <string name="recalculate">Recalculate</string>
     <string name="editProfile">Edit Profile</string>
     <string name="saveChanges">Save Changes</string>
     <string name="whatsapp">WhatsApp</string>
@@ -54,4 +55,5 @@
     <string name="bodyBuilding">Body Building</string>
     <string name="weightLoss">Weight Loss</string>
     <string name="weightGain">Weight Gain</string>
+    <string name="your_bmi">Your BMI</string>
 </resources>

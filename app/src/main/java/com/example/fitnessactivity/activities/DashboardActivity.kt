@@ -5,16 +5,20 @@ import android.content.Intent
 import android.os.Build
 import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.example.fitnessactivity.R
 import com.example.fitnessactivity.addCardViewShadow
 import com.example.fitnessactivity.databinding.ActivityDashboardBinding
-import com.example.fitnessactivity.setWhiteStatusBarColor
+import com.example.fitnessactivity.getBmiCategory
+import com.example.fitnessactivity.misc.GlobalSingleton
+import com.example.fitnessactivity.models.BmiCategory
+import com.example.fitnessactivity.models.User
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import com.google.firebase.database.ktx.getValue
 import pub.devrel.easypermissions.EasyPermissions
-
-private const val REQUEST_CODE_PERMISSIONS = 10
 
 enum class Destination {
     BMI_CALCULATOR, STEP_COUNTER, WORKOUT_SUGGESTION, VIDEO_SUGGESTION, DAILY_CHALLENGES, MORE
@@ -26,6 +30,9 @@ class DashboardActivity : AppCompatActivity() {
         Manifest.permission.ACCESS_FINE_LOCATION
     )
 
+    private var mAuth: FirebaseAuth? = null
+    private var databaseRef: DatabaseReference? = null
+
     @RequiresApi(Build.VERSION_CODES.Q)
     private var PERMISSIONS_ABOVE_29 = arrayOf(
         Manifest.permission.ACTIVITY_RECOGNITION
@@ -36,10 +43,20 @@ class DashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setWhiteStatusBarColor(R.color.grey)
+        mAuth = FirebaseAuth.getInstance()
+        databaseRef = FirebaseDatabase.getInstance().getReference("Users")
         addCardShadows()
+        addUserObserver()
         addClickListeners()
+        fetchUser()
     }
+
+//    private fun uploadFirebaseData(list: List<Exercise>) {
+//        list.forEach {
+//            databaseRef?.child(it.name)?.setValue(it)
+//            Log.e("dfddd${it.name}", "OK")
+//        }
+//    }
 
     private val permReqLauncher =
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
@@ -80,7 +97,18 @@ class DashboardActivity : AppCompatActivity() {
             navigateToMainActivity(Destination.VIDEO_SUGGESTION)
         }
         binding.dailyChallengesCard.setOnClickListener {
-            navigateToMainActivity(Destination.DAILY_CHALLENGES)
+            var myCategory: BmiCategory? = null
+            GlobalSingleton.userLiveData.value?.let {
+                if (it.weight != null && it.height != null) {
+                    val bmi =
+                        GlobalSingleton.calculateBmi(it.weight!!.toFloat(), it.height!!.toFloat())
+                    myCategory = bmi.getBmiCategory()
+                }
+            }
+            val intent = Intent(this, DailyChallengesActivity::class.java).apply {
+                putExtra("MyCategory", myCategory)
+            }
+            startActivity(intent)
         }
         binding.moreCard.setOnClickListener {
             navigateToMainActivity(Destination.MORE)
@@ -118,5 +146,34 @@ class DashboardActivity : AppCompatActivity() {
         addCardViewShadow(binding.videoSuggestionCard)
         addCardViewShadow(binding.dailyChallengesCard)
         addCardViewShadow(binding.moreCard)
+    }
+
+    private fun addUserObserver() {
+        GlobalSingleton.getCurrentUserLiveData().observe(this) { user ->
+            user?.let {
+                val name = it.name.toString()
+                binding.userName.text = name.replace(" ", "\n")
+                Log.e("userDashboardActivity", name)
+            }
+        }
+    }
+
+    private fun fetchUser() {
+        mAuth?.currentUser?.uid?.let {
+            databaseRef?.child(it)?.addValueEventListener(object : ValueEventListener {
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+                    val user = snapshot.getValue<User>()
+                    GlobalSingleton.userLiveData.postValue(user)
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.w("EditProfileActivity", "Failed to read value.", error.toException())
+                }
+
+            })
+        }
     }
 }

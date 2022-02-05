@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.fitnessactivity.R
 import com.example.fitnessactivity.databinding.FragmentBmiBinding
+import com.example.fitnessactivity.getBmiCategory
+import com.example.fitnessactivity.misc.GlobalSingleton
 import com.example.fitnessactivity.setDarkStatusBarColor
 import com.example.fitnessactivity.showToastShort
 import net.yslibrary.android.keyboardvisibilityevent.util.UIUtil
@@ -23,6 +25,7 @@ class BmiFragment : Fragment() {
     private var height = 0f
     private var weight = 0f
     private var age = 0f
+    private var myBmi: Float? = null
 
     // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
@@ -34,12 +37,45 @@ class BmiFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentBmiBinding.inflate(inflater, container, false)
-        requireActivity().setDarkStatusBarColor(R.color.bmiBackgroundColor)
-        binding.calculateBmiButton.setOnClickListener {
-            UIUtil.hideKeyboard(requireActivity())
-            calculateBmi()
-        }
+        activity?.setDarkStatusBarColor(R.color.bmiBackgroundColor)
+        addCalculateButtonClickListener()
+        addUserObserver()
         return binding.root
+    }
+
+    private fun addUserObserver() {
+        GlobalSingleton.userLiveData.value?.let {
+            binding.editTextWeight.setText((it.weight ?: 0).toString())
+            binding.editTextHeight.setText((it.height ?: 1).toString())
+            binding.editTextAge.setText((it.age ?: 0).toString())
+            binding.calculateBmiButton.performClick()
+        }
+    }
+
+    private fun addCalculateButtonClickListener() {
+        binding.calculateBmiButton.setOnClickListener {
+            if (binding.calculateBmiButton.tag == getString(R.string.recalculate)) {
+                binding.calculateBmiButton.tag = getString(R.string.calculate)
+                resetBmiDetails()
+            } else {
+                binding.calculateBmiButton.tag = getString(R.string.recalculate)
+                UIUtil.hideKeyboard(requireActivity())
+                calculateBmi()
+            }
+        }
+        binding.bmiResultValue.setOnClickListener {
+            myBmi?.let {
+                showToastShort(it.getBmiCategory().name)
+            }
+        }
+    }
+
+    private fun resetBmiDetails() {
+        binding.editTextWeight.setText("")
+        binding.editTextHeight.setText("")
+        binding.editTextAge.setText("")
+        binding.bmiResultValue.text = "??.?"
+        binding.calculateBmiButton.text = getString(R.string.calculateBmi)
     }
 
     private fun calculateBmi() {
@@ -53,18 +89,11 @@ class BmiFragment : Fragment() {
             showToastShort("Please enter details first!")
             return
         }
-        val bmi = (weight / ((height * height) / 10000))
-        val df = DecimalFormat("#.#")
-        binding.bmiResultValue.text = df.format(bmi)
+        val bmi = GlobalSingleton.calculateBmi(weight, height)
+        myBmi = bmi
+        binding.bmiResultValue.text = DecimalFormat("#.#").format(bmi)
+        binding.calculateBmiButton.tag = getString(R.string.recalculate)
+        binding.calculateBmiButton.text = getString(R.string.recalculateBmi)
 //        binding.bmiResultCategory.text = getCategory(bmi)
-    }
-
-    private fun getCategory(bmi: Float): String {
-        return when {
-            bmi < 18.5 -> "Underweight"
-            bmi in 18.5..24.9 -> "Normal"
-            bmi in 25.0..29.9 -> "Overweight"
-            else -> "Obese"
-        }
     }
 }
