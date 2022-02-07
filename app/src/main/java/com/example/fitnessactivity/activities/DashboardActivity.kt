@@ -10,10 +10,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitnessactivity.addCardViewShadow
+import com.example.fitnessactivity.data.LocalData
 import com.example.fitnessactivity.databinding.ActivityDashboardBinding
 import com.example.fitnessactivity.getBmiCategory
 import com.example.fitnessactivity.misc.GlobalSingleton
 import com.example.fitnessactivity.models.BmiCategory
+import com.example.fitnessactivity.models.Exercise
 import com.example.fitnessactivity.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -32,6 +34,7 @@ class DashboardActivity : AppCompatActivity() {
 
     private var mAuth: FirebaseAuth? = null
     private var databaseRef: DatabaseReference? = null
+    private var databaseRef2: DatabaseReference? = null
 
     @RequiresApi(Build.VERSION_CODES.Q)
     private var PERMISSIONS_ABOVE_29 = arrayOf(
@@ -45,15 +48,17 @@ class DashboardActivity : AppCompatActivity() {
         setContentView(binding.root)
         mAuth = FirebaseAuth.getInstance()
         databaseRef = FirebaseDatabase.getInstance().getReference("Users")
+        databaseRef2 = FirebaseDatabase.getInstance().getReference("WeightLoss")
         addCardShadows()
         addUserObserver()
         addClickListeners()
         fetchUser()
+//        uploadFirebaseData(LocalData.loss())
     }
 
 //    private fun uploadFirebaseData(list: List<Exercise>) {
 //        list.forEach {
-//            databaseRef?.child(it.name)?.setValue(it)
+//            databaseRef2?.child(it.name ?: "")?.setValue(it)
 //            Log.e("dfddd${it.name}", "OK")
 //        }
 //    }

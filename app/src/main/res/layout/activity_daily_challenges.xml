@@ -6,4 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".activities.DailyChallengesActivity">
 
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constrainedHeight="true"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@id/tabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@color/backgroundColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabIndicatorColor="@color/secondaryColor"
+        app:tabIndicatorFullWidth="true"
+        app:tabIndicatorGravity="top"
+        app:tabIndicatorHeight="@dimen/_2sdp"
+        app:tabPaddingEnd="@dimen/_5sdp"
+        app:tabPaddingStart="@dimen/_5sdp"
+        app:tabSelectedTextColor="@color/secondaryColor" />
 </androidx.constraintlayout.widget.ConstraintLayout>

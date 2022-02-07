@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.RecommendedFragment">
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/title"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="@dimen/_20sdp"-->
+    <!--        android:text="Leg Exercises"-->
+    <!--        android:textSize="@dimen/_18ssp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        tools:ignore="ContentDescription" />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/_15sdp"
+        android:paddingStart="@dimen/_5sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:spanCount="2"
+        tools:listitem="@layout/exercises_list_item" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

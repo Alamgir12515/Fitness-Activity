@@ -1,6 +1,5 @@
 package com.example.fitnessactivity.fragments
 
-import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,6 @@ import com.example.fitnessactivity.databinding.FragmentVideosBinding
 import com.example.fitnessactivity.setWhiteStatusBarColor
 import com.example.fitnessactivity.smoothScrollTo
 import com.google.android.material.tabs.TabLayout
-
 
 class VideosFragment : Fragment() {
 

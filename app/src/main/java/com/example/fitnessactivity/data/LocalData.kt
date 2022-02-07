@@ -1,6 +1,5 @@
 package com.example.fitnessactivity.data
 
-import com.example.fitnessactivity.R
 import com.example.fitnessactivity.models.BodyPart
 import com.example.fitnessactivity.models.Exercise
 import com.example.fitnessactivity.models.VideoModel
@@ -23,7 +22,7 @@ object LocalData {
             Exercise(
                 "Romanian deadlifts: 3 sets of 12 reps",
                 "Standing tall with feet under hips, hold weights by your sides in both hands (or hold onto the handle of a broom or mop like a barbell). Bend knees slightly, and then hinge at your hips.\nKeeping core engaged, drive hips back until you feel a stretch in your hamstrings. Squeeze glutes and return to standing.",
-               "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fleg_3.gif?alt=media&token=127b0b40-3791-4861-9813-2ed75c406b16"
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Exercises%2Fleg_3.gif?alt=media&token=127b0b40-3791-4861-9813-2ed75c406b16"
             ),
             Exercise(
                 "Step-ups: 3 sets of 10 reps on each leg",
@@ -460,4 +459,192 @@ object LocalData {
             ),
         )
     }
+
+    fun gain(): List<Exercise> {
+        return listOf(
+            Exercise(
+                "Squats",
+                "Squats are one of the most basic lower-body exercises for toning and strengthening the lower body, and they're frequently used in weight-gain workouts. You may graduate to more harder variations by adding weights once you've mastered the basic squat form." +
+                        "How to do it: \n" +
+                        "Standing tall with your back straight and your feet slightly wider than hip-width apart is a good place to start. With your arms out in front of you, maintain a straight posture.\n" +
+                        "Squeeze your glutes and move your butt backward rather than merely bending your knees.\n" +
+                        "Start by inhaling, engaging your core, and bending your knees while pushing your butt out.\n" +
+                        "Sit with your weight supported by your heels. Lower your hip joints till they are lower than your knees. Because that's exactly what a full squat is.\n" +
+                        "Keep your hands in this posture for three seconds.\n" +
+                        "Exhale and begin to stand up, keeping your weight on your heels.\n" +
+                        "Repeat.",
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Gain%2Fsquats.gif?alt=media&token=3bc4dfc7-81a0-458c-8c4a-5f17e196f6df"
+            ),
+            Exercise(
+                "Push Ups",
+                "Push-ups are a great exercise to start with if you're a novice. When it comes to strengthening the upper body, it is one of the most essential workouts for weight growth. Push-ups, above all, help you build muscle in your arms and shoulders." +
+                        "How to do it: \n" +
+                        "Lie down on the ground, face down.\n" +
+                        "Hands should be somewhat broader than shoulders.\n" +
+                        "Push yourself up slowly until your arms are completely extended.\n" +
+                        "Lower yourself to the point when your chest is almost touching the floor.\n" +
+                        "Push yourself back up after a little pause.",
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Gain%2Fpushup.gif?alt=media&token=ddce9dab-5d46-4e24-b940-163b67518cd2"
+            ),
+            Exercise(
+                "Lunges",
+                "Lunges, like squats, aid in the bulking and toning of your leg and hip muscles. It's one of the most effective ways to gain weight. You may also add weights or attempt various lunge variations to make the workout more tough." +
+                        "How to do it: \n" +
+                        "Flex your abdominal muscles while standing up straight.\n" +
+                        "Make a big step forward.\n" +
+                        "Lower your body until your shin is vertical and your thigh is parallel to the floor.\n" +
+                        "Return to your original position by pressing back on your heel.\n" +
+                        "Rep with the opposite leg.\n",
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Gain%2Flunges.gif?alt=media&token=2768ada8-0e16-4644-9952-46d708cbf994"
+            ),
+            Exercise(
+                "Tricep Dips",
+                "Tricep Dips are another simple arm and back workout that you may practise at home to gain weight. Dips might help you gain muscular growth in your upper body if done correctly. This workout can also aid in the development of strength for other exercises such as the bench press.\n" +
+                        "How to do it: \n" +
+                        "Sit at the chair's or bench's edge and grip the edges with your hands.\n" +
+                        "Get out of your seat and drop your hips to the ground.\n" +
+                        "Maintain the posture by applying pressure to your palms.\n" +
+                        "Slowly return to your original seated posture.",
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Gain%2FTricep%20Dips.gif?alt=media&token=346c78f5-0828-4802-b26b-3cc7860f2915"
+            ),
+            Exercise(
+                "Pull Ups",
+                "Pull-ups, particularly with weights, are an excellent method to bulk up your muscles. If you're a novice, start with basic pull-ups and progress to weighted pull-ups as your strength improves. You may use a pull-up bar if you're practising this weight gain workout at home.\n" +
+                        "How to do it: \n" +
+                        "With your palms facing away from you and arms shoulder-width apart, grab the pull-up bar with both your hands.\n" +
+                        "Pull yourself up to the point where your feet aren't touching the ground, and keep going until your chin is clear of the bar.\n" +
+                        "Slowly lower yourself until your arms are straight once again.\n" +
+                        "Repeat.",
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Gain%2FPull%20Ups.gif?alt=media&token=52f19d3e-670f-4c2f-8c28-8e97852951d5"
+            ),
+            Exercise(
+                "Bench Press",
+                "The bench press is an excellent technique to bulk up your chest muscles. However, like with any other exercise, it's critical to perform this weight-gain routine properly.\n" +
+                        "How to do it: \n" +
+                        "Begin by laying on the bench with the bar in your hands.\n" +
+                        "Warm up with just the bar and no weights first, then add the weights.\n" +
+                        "Before lowering the bar to your chest, hold it again and lock your elbows out.\n" +
+                        "Lift the bar over your chest with your arms fully extended, taking a deep breath.\n" +
+                        "Bring the bar to the original position and repeat. ",
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Gain%2FBench%20Press.gif?alt=media&token=c8aa29f3-0097-4708-97f6-1419afe7c64c"
+            ),
+            Exercise(
+                "Dumbbell Overhead Press",
+                "Overhead presses will help you gain muscular mass in your entire body. Not only can this exercise improve your posture, but it will also help you create strong back muscles.\n" +
+                        "How to do it: \n" +
+                        "Maintain a straight back and stand tall.\n" +
+                        "While inhaling, hold a dumbbell in each hand and elevate the weights above your head in a smooth manner.\n" +
+                        "While breathing, hold the posture and return to the beginning position.\n" +
+                        "Repeat.\n",
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Gain%2FDumbbell%20Overhead%20Press.gif?alt=media&token=0837a218-e31c-4fbc-b6de-4049dc77564b"
+            ),
+            Exercise(
+                "Crunches",
+                "You're probably thinking that crunches help you lose belly fat, and you're right. But first, let me tell you something you don't know! Crunches can also help you gain core strength and lean muscular mass, resulting in a more appealing stomach.\n" +
+                        "How to do it: \n" +
+                        "With your knees bent and your feet flat on the floor, lie flat on a carpet or your yoga mat.\n" +
+                        "Inhale while crossing your arms over your chest and contracting your abs.\n" +
+                        "Exhale and elevate your upper body while maintaining a relaxed head and neck.\n" +
+                        "Return to the starting position by inhaling.\n" +
+                        "Repeat.",
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Gain%2FCrunches.gif?alt=media&token=fb98d75a-7ad1-4f37-94c4-7c22d96ca53c"
+            )
+        )
+    }
+
+    fun loss(): List<Exercise> {
+        return listOf(
+            Exercise(
+                "Forward Lunge",
+                "A. Stand tall with feet hip-width apart. Place hands on hips or hold weights by sides to start.\n" +
+                        "B. Take a controlled step forward with the right leg. Keeping spine tall, lower body until the front and back leg form a 90-degree angle.\n" +
+                        "C. Pause, then step right leg back to start. Step left leg forward to repeat on the other side.\n" +
+                        "Sets: 3\n" +
+                        "Reps: 10 per side\n\n" +
+                        "Tips:\n" +
+                        "There are many variations to the lunge, but the classic forward lunge is still very effective for weight loss, as it works multiple muscles at once (think: glutes, quads, and hamstrings).",
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Loss%2FForward%20Lunge.gif?alt=media&token=0c8baaf8-3911-4812-9a00-05ec5b28825c"
+            ),
+            Exercise(
+                "Burpee",
+                "A. Stand with your feet shoulder-width apart and arms at your sides. Push your hips back, bend knees, and reach palms to the ground to lower into a crouch.\n" +
+                        "Immediately lower back into a squat for the next rep. Repeat 8 to 12 times. Complete 3 sets.\n" +
+                        "B. With hands shoulder-width on the floor directly in front of feet, and shift your weight to them to jump back and land softly in plank position.\n" +
+                        "C. Jump feet forward so they land just outside of hands. Jump explosively into the air, reaching hands overhead or leaving by sides.\n" +
+                        "Sets: 3\n" +
+                        "Reps: 8 to 12\n" +
+                        "Tips:\n" +
+                        "This exercise effectively targets your core, chest, and legs simultaneously. Feel the burn and know you're building lots of lean muscle.",
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Loss%2FBurpee.gif?alt=media&token=a6abf5f9-6ac1-4a7a-9cd5-e0c5d0cee64f"
+            ),
+            Exercise(
+                "Explosive Lunge",
+                "A. Start with feet together, hands on your hips. Step forward with the right leg and lower into a lunge so right knee is bent at a 90-degree angle.\n" +
+                        "B. Jump up, switching legs midair.\n" +
+                        "C. Land softly with the left leg forward, immediately lowering into a lunge. \n" +
+                        "Sets: 3\n" +
+                        "Reps: Repeat for 1 minute",
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Loss%2FExplosive%20Lunge.gif?alt=media&token=c6e8c7e5-687f-4164-9da9-1d983db21f55"
+            ),
+            Exercise(
+                "Squat",
+                "A. Start with feet hip-width apart, arms either at sides holding weights or clasped in front of chest.\n" +
+                        "B. Keeping weight in heels and back straight, sit hips back and bend knees to lower into a squat until thighs are parallel to the floor. Remember to keep knees in line with toes the entire time. Maintain an even pace and rise back to start.\n" +
+                        "Sets: 3\n" +
+                        "Reps: 15\n" +
+                        "Tips:\n" +
+                        "Squats are one of the best exercises for weight loss and for building overall strength. When you do them correctly, you engage your core and entire lower body.",
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Gain%2Fsquats.gif?alt=media&token=3bc4dfc7-81a0-458c-8c4a-5f17e196f6df"
+            ),
+            Exercise(
+                "Double Jump",
+                "A. Stand with feet slightly wider than hip-width apart and lower into a deep squat.\n" +
+                        "B. Rise up as if you're jumping, but land in a lunge position with your right leg back.\n" +
+                        "C. Use momentum to jump from this lunge position back to a squat. Then repeat, landing in a lunge on the opposite side.\n" +
+                        "Sets: 2\n" +
+                        "Reps: Repeat for 45 seconds\n" +
+                        "Tips:\n" +
+                        "Take your traditional squats up a notch by incorporating a jump and lunge. The movement will increase your heart rate and you'll feel the burn in your abs, butt, and legs.",
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Loss%2FDouble%20Jump.gif?alt=media&token=b0b13da5-85c9-4bd2-8f1b-9ca6c8953958"
+            ),
+            Exercise(
+                "Mountain Climbers",
+                "A. Start in a plank position on the floor. Drive the right knee in toward chest without raising hips or allowing right foot to touch the floor. \n" +
+                        "B. Place right foot back in plank and repeat on the other side, driving the left knee in toward chest. Repeat, alternating legs.\n" +
+                        "Sets: 3\n" +
+                        "Reps: Repeat for 1 minute\n" +
+                        "Tips:\n" +
+                        "Mountain climbers are an excellent way to burn calories. The quick leg motion targets obliques, butt, and hamstrings.",
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Loss%2FMountain%20Climbers.gif?alt=media&token=1597bcf8-a7b4-40f0-adeb-c8d7530f87af"
+            ),
+            Exercise(
+                "Jump Rope",
+                "Start with feet together, hands holding ends of the jump rope, elbows in toward ribs. Swing the jump rope and step or hop both feet over. Don't jump in between, just jump with each swing of the rope.\n" +
+                        "Sets: 3\n" +
+                        "Reps: Repeat for 1 minute\n" +
+                        "Tips:\n" +
+                        "Jumping rope is a great total-body tool made for weight loss. Challenge yourself to complete a full minute of jumping—it's harder than you think. \n" +
+                        "Check the length of the jump rope by holding it in each hands and ensuring the handles line up with shoulders.",
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Loss%2FJump%20Rope.gif?alt=media&token=931b8219-bb13-4718-b63a-d66ac42f8f13"
+            ),
+            Exercise(
+                "Kettlebell Swing",
+                "A. Stand with feet slightly wider than hip-width apart and a kettlebell slightly in front of feet. Grasp kettlebell handle with both hands. Keeping back straight, hinge at the hips to hike the kettlebell backward between legs.\n" +
+                        "B. Press hips forward to stand and swing the kettlebell overhead, keeping core engaged. Allow the kettlebell to fall forward and between legs to begin the next swing.\n" +
+                        "Sets: 3\n" +
+                        "Reps: 15\n" +
+                        "Tips:\n" +
+                        "Kettlebells are very effective when used for weight loss because they engage the entire body. Plus, they're low impact yet high intensity—ideal for calorie burn. If you're not ready for an overhead swing, stop the bell at shoulder height and let it swing back down between legs.",
+                "https://firebasestorage.googleapis.com/v0/b/fitness-activity-432c6.appspot.com/o/Loss%2FKettlebell%20Swing.gif?alt=media&token=8189e17a-9361-44c9-87bb-57317b68a0cb"
+            ),
+        )
+    }
+
+//    fun building(): List<Exercise> {
+//        return listOf(
+//            Exercise(
+//                ""
+//            )
+//        )
+//    }
 }

@@ -14,7 +14,6 @@ import com.example.fitnessactivity.models.Exercise
 
 class ExerciseRVAdapter(
     private val activity: Activity,
-    private val bodyPart: BodyPart,
     private val list: List<Exercise>
 ) : RecyclerView.Adapter<ExerciseRVAdapter.MyViewHolder>() {
     override fun onCreateViewHolder(
@@ -34,8 +33,8 @@ class ExerciseRVAdapter(
         holder.bind(list[position])
         holder.itemView.setOnClickListener {
             activity.startActivity(Intent(activity, ExerciseActivity::class.java).apply {
-                putExtra("EXERCISE_TITLE", list[position].name)
-                putExtra("THE_PART", bodyPart)
+                putExtra("THE_EXERCISE", list[position])
+//                putExtra("THE_PART", bodyPart)
             })
         }
     }

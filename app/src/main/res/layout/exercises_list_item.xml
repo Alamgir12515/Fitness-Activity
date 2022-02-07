@@ -10,15 +10,16 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackgroundBorderless"
+    app:cardBackgroundColor="@color/colorPrimary"
     app:cardCornerRadius="@dimen/_12sdp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/imageCard"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/_120sdp"
             android:layout_height="@dimen/_90sdp"
             app:cardCornerRadius="@dimen/_12sdp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +43,7 @@
             android:layout_marginVertical="@dimen/_10sdp"
             android:text="7 MIN CALORIE BURNER WORKOUT (NO EQUIPMENT BODYWEIGHT WORKOUT)"
             android:textAllCaps="false"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
 
     <application
+        android:name=".misc.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitnessActivity"
         tools:ignore="AllowBackup">
+        <activity
+            android:name=".activities.AddChallengeActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.DailyChallengesActivity"
             android:exported="false" />
