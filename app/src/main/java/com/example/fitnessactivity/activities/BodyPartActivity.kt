@@ -6,8 +6,8 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitnessactivity.adapters.ExerciseRVAdapter
 import com.example.fitnessactivity.databinding.ActivityBodyPartBinding
-import com.example.fitnessactivity.models.BmiCategory
 import com.example.fitnessactivity.models.BodyPart
+import com.example.fitnessactivity.models.CustomChallenge
 import com.example.fitnessactivity.models.Exercise
 import com.example.fitnessactivity.setWhiteStatusBarColor
 import com.google.firebase.database.DataSnapshot
@@ -15,13 +15,15 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.getValue
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 class BodyPartActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBodyPartBinding
     private var bodyPart: BodyPart? = null
 
     private var database: FirebaseDatabase? = null
-    private var category: BmiCategory? = null
+    private var challenge: CustomChallenge? = null
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,18 +33,18 @@ class BodyPartActivity : AppCompatActivity() {
         setWhiteStatusBarColor()
         database = FirebaseDatabase.getInstance()
         bodyPart = (intent.getSerializableExtra("THE_PART") as? BodyPart)
-        category = intent.getSerializableExtra("MyCategory") as? BmiCategory
-        if (category != null) {
-            binding.title.text = "Recommended Exercises"
-            getRecommendedExercises(category!!)
+        challenge = intent.getSerializableExtra("MyChallenge") as? CustomChallenge
+        if (challenge != null) {
+            binding.title.text = challenge!!.title
+            val type = object : TypeToken<ArrayList<Exercise>>() {}.type
+            val list: ArrayList<Exercise> = Gson().fromJson(challenge!!.exercisesListString, type)
+            binding.recyclerView.apply {
+                adapter = ExerciseRVAdapter(this@BodyPartActivity, list)
+            }
         } else {
             binding.title.text = "${bodyPart?.name} Exercises"
             populateData()
         }
-    }
-
-    private fun getRecommendedExercises(category: BmiCategory) {
-
     }
 
     private fun populateData() {
@@ -71,6 +73,7 @@ class BodyPartActivity : AppCompatActivity() {
 //            adapter = ExerciseRVAdapter(this@BodyPartActivity, bodyPart, list)
 //        }
     }
+
     private fun getDataList(refName: String): ArrayList<Exercise> {
         val list = arrayListOf<Exercise>()
         val ref = database?.getReference("Exercises")?.child(refName)

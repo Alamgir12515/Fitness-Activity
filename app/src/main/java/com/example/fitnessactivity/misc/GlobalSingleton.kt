@@ -7,7 +7,7 @@ import com.example.fitnessactivity.models.User
 
 object GlobalSingleton {
     val userLiveData = MutableLiveData<User?>()
-    val childData: HashMap<String, ArrayList<Exercise>> = HashMap()
+    val expandableListChildData: HashMap<String, ArrayList<Exercise>> = HashMap()
 
     fun getCurrentUserLiveData(): LiveData<User?> {
         return userLiveData

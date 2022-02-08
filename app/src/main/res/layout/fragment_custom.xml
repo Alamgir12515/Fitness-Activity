@@ -6,11 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".fragments.CustomFragment">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="CustomFragment" />
+        android:paddingTop="@dimen/_10sdp"
+        tools:listitem="@layout/challenges_list_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"

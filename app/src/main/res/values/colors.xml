@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#E4E4E4</color>
+    <color name="grey2">#F8F6F6</color>
     <color name="bmiCardColor">#919FEA</color>
     <color name="blurColor">#99000000</color>
     <color name="bmiItemTextColor">#72909D</color>

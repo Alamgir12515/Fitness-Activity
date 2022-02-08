@@ -13,10 +13,13 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/_12sdp"
         android:layout_marginStart="@dimen/_35sdp"
-        android:text="TextView"
+        android:layout_marginEnd="@dimen/_10sdp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         android:textSize="@dimen/_11ssp"
+        app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/checkBox"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
