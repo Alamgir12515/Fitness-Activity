@@ -61,4 +61,8 @@
     <string name="title">Title</string>
     <string name="empty" />
     <string name="save">Save</string>
+    <string name="markAsComplete">Mark as Complete</string>
+    <string name="markComplete">Mark Complete</string>
+    <string name="keepInProgress">Keep In Progress</string>
+    <string name="delete">Delete</string>
 </resources>

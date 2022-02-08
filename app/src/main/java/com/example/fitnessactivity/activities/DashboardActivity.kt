@@ -10,12 +10,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitnessactivity.addCardViewShadow
-import com.example.fitnessactivity.data.LocalData
 import com.example.fitnessactivity.databinding.ActivityDashboardBinding
 import com.example.fitnessactivity.getBmiCategory
 import com.example.fitnessactivity.misc.GlobalSingleton
-import com.example.fitnessactivity.models.BmiCategory
-import com.example.fitnessactivity.models.Exercise
 import com.example.fitnessactivity.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -102,18 +99,10 @@ class DashboardActivity : AppCompatActivity() {
             navigateToMainActivity(Destination.VIDEO_SUGGESTION)
         }
         binding.dailyChallengesCard.setOnClickListener {
-            var myCategory: BmiCategory? = null
-            GlobalSingleton.userLiveData.value?.let {
-                if (it.weight != null && it.height != null) {
-                    val bmi =
-                        GlobalSingleton.calculateBmi(it.weight!!.toFloat(), it.height!!.toFloat())
-                    myCategory = bmi.getBmiCategory()
-                }
-            }
-            val intent = Intent(this, DailyChallengesActivity::class.java).apply {
-                putExtra("MyCategory", myCategory)
-            }
+//            var myCategory: BmiCategory? = null
+            val intent = Intent(this, DailyChallengesActivity::class.java)
             startActivity(intent)
+
         }
         binding.moreCard.setOnClickListener {
             navigateToMainActivity(Destination.MORE)

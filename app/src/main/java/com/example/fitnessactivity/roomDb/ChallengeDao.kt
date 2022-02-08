@@ -6,6 +6,8 @@ import com.example.fitnessactivity.models.CustomChallenge
 
 @Dao
 interface ChallengeDao {
+    @Query("UPDATE challenges SET isComplete=:isComplete WHERE id = :id")
+    fun update(isComplete: Boolean, id: String)
 
     @Query("SELECT * FROM challenges")
     fun getAll(): LiveData<List<CustomChallenge>>

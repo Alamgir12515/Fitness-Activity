@@ -49,6 +49,12 @@ class LocalDataSource @Inject constructor(
         }
     }
 
+    fun update(isComplete: Boolean, id: String) {
+        executorService.execute {
+            challengeDao.update(isComplete, id)
+        }
+    }
+
     fun removeChallenge(challenge: CustomChallenge) {
         executorService.execute {
             challengeDao.delete(challenge)

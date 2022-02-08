@@ -21,7 +21,10 @@
             android:exported="false" />
         <activity
             android:name=".activities.DailyChallengesActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/WhiteStatusBar"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".activities.ExerciseActivity"
             android:exported="false" />

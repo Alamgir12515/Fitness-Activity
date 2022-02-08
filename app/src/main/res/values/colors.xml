@@ -22,4 +22,5 @@
     <color name="primaryVariant">#0B82E6</color>
 
     <color name="cardShadowColor">#801E1C2E</color>
+    <color name="red">#FF1100</color>
 </resources>

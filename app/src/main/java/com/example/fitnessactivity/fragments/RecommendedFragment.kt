@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.fitnessactivity.R
+import com.example.fitnessactivity.*
 import com.example.fitnessactivity.adapters.ExerciseRVAdapter
 import com.example.fitnessactivity.databinding.FragmentRecommendedBinding
+import com.example.fitnessactivity.misc.GlobalSingleton
 import com.example.fitnessactivity.models.BmiCategory
 import com.example.fitnessactivity.models.Exercise
-import com.example.fitnessactivity.setDarkStatusBarColor
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -23,11 +23,8 @@ class RecommendedFragment : Fragment() {
         fun newInstance() = RecommendedFragment()
     }
 
-    private var category: BmiCategory? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        category = arguments?.getSerializable("MyCategory") as? BmiCategory
     }
 
 
@@ -40,8 +37,34 @@ class RecommendedFragment : Fragment() {
     ): View {
         _binding = FragmentRecommendedBinding.inflate(inflater, container, false)
         activity?.setDarkStatusBarColor(R.color.bmiBackgroundColor)
-        category?.let { setupByCategory(it) }
+        "userX".printLog(GlobalSingleton.userLiveData.value != null)
+        fetchData()
         return binding.root
+    }
+
+    private fun fetchData() {
+        showLoading()
+        GlobalSingleton.userLiveData.observe(viewLifecycleOwner) { value ->
+            "userY".printLog(value != null)
+            value?.let {
+                if (it.weight != null && it.height != null) {
+                    val bmi =
+                        GlobalSingleton.calculateBmi(it.weight!!.toFloat(), it.height!!.toFloat())
+                    val myCategory = bmi.getBmiCategory()
+                    setupByCategory(myCategory)
+                }
+            }
+        }
+    }
+
+    private fun showLoading() {
+        binding.progressBar3.makeVisible()
+        binding.recyclerView.makeGone()
+    }
+
+    private fun hideLoading() {
+        binding.progressBar3.makeGone()
+        binding.recyclerView.makeVisible()
     }
 
     private fun setupByCategory(category: BmiCategory) {
@@ -67,6 +90,7 @@ class RecommendedFragment : Fragment() {
                         list.add(it)
                     }
                 }
+                hideLoading()
                 Log.e("Print${category.name}", list.size.toString())
                 binding.recyclerView.apply {
                     adapter = ExerciseRVAdapter(requireActivity(), list)
