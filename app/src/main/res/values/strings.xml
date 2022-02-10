@@ -65,4 +65,5 @@
     <string name="markComplete">Mark Complete</string>
     <string name="keepInProgress">Keep In Progress</string>
     <string name="delete">Delete</string>
+    <string name="noCustomChallengeMessage">No custom challenges found!</string>
 </resources>

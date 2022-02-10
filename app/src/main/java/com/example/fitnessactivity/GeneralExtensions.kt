@@ -53,6 +53,10 @@ fun View.makeGone() {
     this.visibility = View.GONE
 }
 
+fun View.toggleVisibility(show: Boolean) {
+    if (show) this.makeVisible() else this.makeGone()
+}
+
 fun Activity.showToastShort(msg: String) {
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
 }

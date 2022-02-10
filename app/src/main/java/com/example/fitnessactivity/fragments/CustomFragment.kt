@@ -18,6 +18,7 @@ import com.example.fitnessactivity.models.CustomChallenge
 import com.example.fitnessactivity.roomDb.ChallengeDao
 import com.example.fitnessactivity.roomDb.LocalDataSource
 import com.example.fitnessactivity.setDarkStatusBarColor
+import com.example.fitnessactivity.toggleVisibility
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -95,10 +96,16 @@ class CustomFragment : Fragment() {
     }
 
     private fun setupRecyclerView(list: List<CustomChallenge>) {
-        rvAdapter = ChallengesRVAdapter(this@CustomFragment, list)
-        binding.recyclerView.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-            adapter = rvAdapter
+        val isListNotEmpty = list.isNotEmpty()
+        binding.emptyImageView.toggleVisibility(!isListNotEmpty)
+        binding.emptyTextView.toggleVisibility(!isListNotEmpty)
+        binding.recyclerView.toggleVisibility(isListNotEmpty)
+        if (isListNotEmpty) {
+            rvAdapter = ChallengesRVAdapter(this@CustomFragment, list)
+            binding.recyclerView.apply {
+                layoutManager = LinearLayoutManager(requireContext())
+                adapter = rvAdapter
+            }
         }
     }
 
