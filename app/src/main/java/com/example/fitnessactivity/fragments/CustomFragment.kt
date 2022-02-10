@@ -100,6 +100,7 @@ class CustomFragment : Fragment() {
         binding.emptyImageView.toggleVisibility(!isListNotEmpty)
         binding.emptyTextView.toggleVisibility(!isListNotEmpty)
         binding.recyclerView.toggleVisibility(isListNotEmpty)
+
         if (isListNotEmpty) {
             rvAdapter = ChallengesRVAdapter(this@CustomFragment, list)
             binding.recyclerView.apply {
