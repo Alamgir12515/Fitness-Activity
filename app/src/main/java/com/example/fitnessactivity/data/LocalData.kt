@@ -661,4 +661,23 @@ object LocalData {
             )
         )
     }
+    fun getAboutUsData(): List<IntroPageItem> {
+        return listOf(
+            IntroPageItem(
+                "Create Challenges",
+                "You can create your own workout challenges by selecting your own preferred exercises, that focus on different body parts.",
+                R.drawable.on_boarding_1
+            ),
+            IntroPageItem(
+                "Exercise Suggestions",
+                "Best exercises suggestions derived by your BMI value, that you can follow on your own pace, anytime and anywhere!",
+                R.drawable.on_boarding_4
+            ),
+            IntroPageItem(
+                "Step Counter",
+                "One of the best features you can take advantages of while working out is step counter. You can count steps as you go!",
+                R.drawable.on_boarding_2
+            )
+        )
+    }
 }
