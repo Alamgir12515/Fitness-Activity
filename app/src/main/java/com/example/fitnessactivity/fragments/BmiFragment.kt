@@ -50,19 +50,15 @@ class BmiFragment : Fragment() {
             binding.editTextWeight.setText((it.weight ?: 0).toString())
             binding.editTextHeight.setText((it.height ?: 1).toString())
             binding.editTextAge.setText((it.age ?: 0).toString())
-            binding.calculateBmiButton.performClick()
+            onButtonClick()
         }
     }
 
     private fun addCalculateButtonClickListener() {
         binding.calculateBmiButton.setOnClickListener {
+            onButtonClick()
             if (binding.calculateBmiButton.tag == getString(R.string.recalculate)) {
-                binding.calculateBmiButton.tag = getString(R.string.calculate)
-                resetBmiDetails()
-            } else {
-                binding.calculateBmiButton.tag = getString(R.string.recalculate)
-                UIUtil.hideKeyboard(requireActivity())
-                calculateBmi()
+                myBmi?.let { showAlertBox(it) }
             }
         }
         binding.bmiResultValue.setOnClickListener {
@@ -72,21 +68,15 @@ class BmiFragment : Fragment() {
         }
     }
 
-    private fun showAlertBox(bmi: Float) {
-        MaterialAlertDialogBuilder(requireContext())
-            .setTitle(resources.getString(R.string.dialog_title))
-            .setMessage(resources.getString(R.string.supporting_text))
-            .setNegativeButton(resources.getString(R.string.noThanks)) { dialog, which ->
-                dialog.dismiss()
-            }
-            .setPositiveButton(resources.getString(R.string.go)) { dialog, which ->
-                val intent = Intent(requireContext(), DailyChallengesActivity::class.java).apply {
-                    putExtra("isFromBMI", true)
-                    putExtra("myCategory", bmi.getBmiCategory())
-                }
-                startActivity(intent)
-            }
-            .show()
+    private fun onButtonClick() {
+        if (binding.calculateBmiButton.tag == getString(R.string.recalculate)) {
+            binding.calculateBmiButton.tag = getString(R.string.calculate)
+            resetBmiDetails()
+        } else {
+            binding.calculateBmiButton.tag = getString(R.string.recalculate)
+            UIUtil.hideKeyboard(requireActivity())
+            calculateBmi()
+        }
     }
 
     private fun resetBmiDetails() {
@@ -113,7 +103,28 @@ class BmiFragment : Fragment() {
         binding.bmiResultValue.text = DecimalFormat("#.#").format(bmi)
         binding.calculateBmiButton.tag = getString(R.string.recalculate)
         binding.calculateBmiButton.text = getString(R.string.recalculateBmi)
-        showAlertBox(bmi)
-//        binding.bmiResultCategory.text = getCategory(bmi)
     }
+
+    override fun onResume() {
+        super.onResume()
+        myBmi?.let { showAlertBox(it) }
+    }
+
+    private fun showAlertBox(bmi: Float) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(resources.getString(R.string.dialog_title))
+            .setMessage(resources.getString(R.string.supporting_text))
+            .setNegativeButton(resources.getString(R.string.noThanks)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setPositiveButton(resources.getString(R.string.go)) { _, _ ->
+                val intent = Intent(requireContext(), DailyChallengesActivity::class.java).apply {
+                    putExtra("isFromBMI", true)
+                    putExtra("myCategory", bmi.getBmiCategory())
+                }
+                startActivity(intent)
+            }
+            .show()
+    }
+
 }

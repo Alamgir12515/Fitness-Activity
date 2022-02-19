@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         mAuth = FirebaseAuth.getInstance()
         databaseRef = FirebaseDatabase.getInstance().getReference("Users")
-//        setWhiteStatusBarColor()
         navController = findNavController(R.id.nav_host_fragment_activity_main)
         binding.navView.setupWithNavController(navController)
         val destination = intent.getSerializableExtra("Destination") as? Destination
@@ -79,4 +78,5 @@ class MainActivity : AppCompatActivity() {
             })
         }
     }
+
 }

@@ -12,6 +12,7 @@ import com.example.fitnessactivity.activities.ContactActivity
 import com.example.fitnessactivity.activities.EditProfileActivity
 import com.example.fitnessactivity.activities.LoginActivity
 import com.example.fitnessactivity.databinding.FragmentProfileBinding
+import com.example.fitnessactivity.misc.GlobalSingleton
 import com.example.fitnessactivity.setDarkStatusBarColor
 import com.google.firebase.auth.FirebaseAuth
 
@@ -34,6 +35,12 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         requireActivity().setDarkStatusBarColor(R.color.bmiBackgroundColor)
+        addUserObserver()
+        addButtonClickListeners()
+        return binding.root
+    }
+
+    private fun addButtonClickListeners() {
         binding.logoutCard.setOnClickListener {
             signOut()
         }
@@ -49,7 +56,15 @@ class ProfileFragment : Fragment() {
             val intent = Intent(requireContext(), AboutUsActivity::class.java)
             startActivity(intent)
         }
-        return binding.root
+    }
+
+    private fun addUserObserver() {
+        GlobalSingleton.getCurrentUserLiveData().observe(viewLifecycleOwner) { user ->
+            user?.let {
+                val name = it.name.toString()
+                binding.userName.text = name
+            }
+        }
     }
 
     private fun signOut() {
