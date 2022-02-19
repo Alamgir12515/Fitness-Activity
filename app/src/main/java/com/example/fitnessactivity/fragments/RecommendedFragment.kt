@@ -23,8 +23,13 @@ class RecommendedFragment : Fragment() {
         fun newInstance() = RecommendedFragment()
     }
 
+    private var isFromBMI = false
+    private var myCategory = BmiCategory.Normal
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        isFromBMI = arguments?.getBoolean("isFromBMI") ?: false
+        myCategory =
+            (arguments?.getSerializable("myCategory") as? BmiCategory) ?: BmiCategory.Normal
     }
 
 
@@ -37,8 +42,11 @@ class RecommendedFragment : Fragment() {
     ): View {
         _binding = FragmentRecommendedBinding.inflate(inflater, container, false)
         activity?.setDarkStatusBarColor(R.color.bmiBackgroundColor)
-        "userX".printLog(GlobalSingleton.userLiveData.value != null)
-        fetchData()
+        if (isFromBMI) {
+            setupByCategory(myCategory)
+        } else {
+            fetchData()
+        }
         return binding.root
     }
 

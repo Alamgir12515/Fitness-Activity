@@ -66,7 +66,7 @@ class OnBoardingActivity : AppCompatActivity() {
         })
 
         binding.getStartedButton.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, AuthenticationActivity::class.java)
             startActivity(intent)
             saveSeenState()
             finish()

@@ -1,22 +1,24 @@
 package com.example.fitnessactivity.fragments
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.fitnessactivity.R
+import com.example.fitnessactivity.activities.DailyChallengesActivity
 import com.example.fitnessactivity.databinding.FragmentBmiBinding
 import com.example.fitnessactivity.getBmiCategory
 import com.example.fitnessactivity.misc.GlobalSingleton
 import com.example.fitnessactivity.setDarkStatusBarColor
 import com.example.fitnessactivity.showToastShort
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import net.yslibrary.android.keyboardvisibilityevent.util.UIUtil
 import java.text.DecimalFormat
 
 class BmiFragment : Fragment() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -70,6 +72,23 @@ class BmiFragment : Fragment() {
         }
     }
 
+    private fun showAlertBox(bmi: Float) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(resources.getString(R.string.dialog_title))
+            .setMessage(resources.getString(R.string.supporting_text))
+            .setNegativeButton(resources.getString(R.string.noThanks)) { dialog, which ->
+                dialog.dismiss()
+            }
+            .setPositiveButton(resources.getString(R.string.go)) { dialog, which ->
+                val intent = Intent(requireContext(), DailyChallengesActivity::class.java).apply {
+                    putExtra("isFromBMI", true)
+                    putExtra("myCategory", bmi.getBmiCategory())
+                }
+                startActivity(intent)
+            }
+            .show()
+    }
+
     private fun resetBmiDetails() {
         binding.editTextWeight.setText("")
         binding.editTextHeight.setText("")
@@ -94,6 +113,7 @@ class BmiFragment : Fragment() {
         binding.bmiResultValue.text = DecimalFormat("#.#").format(bmi)
         binding.calculateBmiButton.tag = getString(R.string.recalculate)
         binding.calculateBmiButton.text = getString(R.string.recalculateBmi)
+        showAlertBox(bmi)
 //        binding.bmiResultCategory.text = getCategory(bmi)
     }
 }

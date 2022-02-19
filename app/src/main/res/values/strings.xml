@@ -66,4 +66,8 @@
     <string name="keepInProgress">Keep In Progress</string>
     <string name="delete">Delete</string>
     <string name="noCustomChallengeMessage">No custom challenges found!</string>
+    <string name="go">Let\'s Go</string>
+    <string name="noThanks">No Thanks</string>
+    <string name="dialog_title">Workout Recommendations</string>
+    <string name="supporting_text">We have some workouts for you, bases on your BMI, wanna check out?</string>
 </resources>
