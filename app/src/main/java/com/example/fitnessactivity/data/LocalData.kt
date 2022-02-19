@@ -1,7 +1,9 @@
 package com.example.fitnessactivity.data
 
+import com.example.fitnessactivity.R
 import com.example.fitnessactivity.models.BodyPart
 import com.example.fitnessactivity.models.Exercise
+import com.example.fitnessactivity.models.IntroPageItem
 import com.example.fitnessactivity.models.VideoModel
 
 object LocalData {
@@ -640,11 +642,23 @@ object LocalData {
         )
     }
 
-//    fun building(): List<Exercise> {
-//        return listOf(
-//            Exercise(
-//                ""
-//            )
-//        )
-//    }
+    fun getOnBoardingData(): List<IntroPageItem> {
+        return listOf(
+            IntroPageItem(
+                "Create Challenges",
+                "You can create your own workout challenges by selecting your own preferred exercises, that focus on different body parts.",
+                R.drawable.on_boarding_1
+            ),
+            IntroPageItem(
+                "Exercise Suggestions",
+                "Best exercises suggestions derived by your BMI value, that you can follow on your own pace, anytime and anywhere!",
+                R.drawable.on_boarding_3
+            ),
+            IntroPageItem(
+                "Step Counter",
+                "One of the best features you can take advantages of while working out is step counter. You can count steps as you go!",
+                R.drawable.on_boarding_2
+            )
+        )
+    }
 }
