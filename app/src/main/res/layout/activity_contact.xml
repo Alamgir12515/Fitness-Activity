@@ -28,7 +28,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:focusable="true"
-        android:padding="@dimen/_3sdp"
+        android:padding="@dimen/_5sdp"
         android:src="@drawable/ic_back"
         app:layout_constraintBottom_toBottomOf="@id/profileTextView"
         app:layout_constraintStart_toStartOf="parent"

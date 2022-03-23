@@ -41,6 +41,10 @@ fun Float.getBmiCategory(): BmiCategory {
     }
 }
 
+fun Fragment.getColor(@ColorRes color: Int): Int {
+    return ContextCompat.getColor(requireContext(), color)
+}
+
 fun View.makeVisible() {
     this.visibility = View.VISIBLE
 }

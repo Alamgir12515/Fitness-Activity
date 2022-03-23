@@ -7,29 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.fitnessactivity.R
+import com.example.fitnessactivity.*
 import com.example.fitnessactivity.activities.DailyChallengesActivity
 import com.example.fitnessactivity.databinding.FragmentBmiBinding
-import com.example.fitnessactivity.getBmiCategory
 import com.example.fitnessactivity.misc.GlobalSingleton
-import com.example.fitnessactivity.setDarkStatusBarColor
-import com.example.fitnessactivity.showToastShort
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import net.yslibrary.android.keyboardvisibilityevent.util.UIUtil
 import java.text.DecimalFormat
 
 class BmiFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     private var _binding: FragmentBmiBinding? = null
     private var height = 0f
     private var weight = 0f
     private var age = 0f
     private var myBmi: Float? = null
+    private var isMale: Boolean? = null
 
-    // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
 
     @SuppressLint("SetTextI18n")
@@ -42,7 +35,32 @@ class BmiFragment : Fragment() {
         activity?.setDarkStatusBarColor(R.color.bmiBackgroundColor)
         addCalculateButtonClickListener()
         addUserObserver()
+        binding.maleCardView.setOnClickListener {
+            onGenderSelected(true)
+        }
+        binding.femaleCardView.setOnClickListener {
+            onGenderSelected(false)
+        }
+        onGenderSelected(true)
         return binding.root
+    }
+
+    private fun onGenderSelected(gender: Boolean?) {
+        isMale = gender
+        when (isMale) {
+            true -> {
+                binding.maleCardView.setCardBackgroundColor(getColor(R.color.colorPrimary))
+                binding.femaleCardView.setCardBackgroundColor(getColor(R.color.bmiCardColor))
+            }
+            false -> {
+                binding.maleCardView.setCardBackgroundColor(getColor(R.color.bmiCardColor))
+                binding.femaleCardView.setCardBackgroundColor(getColor(R.color.colorPrimary))
+            }
+            null -> {
+                binding.maleCardView.setCardBackgroundColor(getColor(R.color.bmiCardColor))
+                binding.femaleCardView.setCardBackgroundColor(getColor(R.color.bmiCardColor))
+            }
+        }
     }
 
     private fun addUserObserver() {
@@ -57,9 +75,6 @@ class BmiFragment : Fragment() {
     private fun addCalculateButtonClickListener() {
         binding.calculateBmiButton.setOnClickListener {
             onButtonClick()
-            if (binding.calculateBmiButton.tag == getString(R.string.recalculate)) {
-                myBmi?.let { showAlertBox(it) }
-            }
         }
         binding.bmiResultValue.setOnClickListener {
             myBmi?.let {
@@ -75,6 +90,7 @@ class BmiFragment : Fragment() {
         } else {
             binding.calculateBmiButton.tag = getString(R.string.recalculate)
             UIUtil.hideKeyboard(requireActivity())
+            myBmi?.let { showSuggestion(it) }
             calculateBmi()
         }
     }
@@ -84,7 +100,9 @@ class BmiFragment : Fragment() {
         binding.editTextHeight.setText("")
         binding.editTextAge.setText("")
         binding.bmiResultValue.text = "??.?"
+        onGenderSelected(null)
         binding.calculateBmiButton.text = getString(R.string.calculateBmi)
+        binding.resultLayout.makeGone()
     }
 
     private fun calculateBmi() {
@@ -105,26 +123,16 @@ class BmiFragment : Fragment() {
         binding.calculateBmiButton.text = getString(R.string.recalculateBmi)
     }
 
-    override fun onResume() {
-        super.onResume()
-        myBmi?.let { showAlertBox(it) }
-    }
-
-    private fun showAlertBox(bmi: Float) {
-        MaterialAlertDialogBuilder(requireContext())
-            .setTitle(resources.getString(R.string.dialog_title))
-            .setMessage(resources.getString(R.string.supporting_text))
-            .setNegativeButton(resources.getString(R.string.noThanks)) { dialog, _ ->
-                dialog.dismiss()
+    private fun showSuggestion(bmi: Float) {
+        binding.resultLayout.makeVisible()
+        binding.bmiResultCategory.text = bmi.getBmiCategory().toString()
+        binding.suggestionsButton.setOnClickListener {
+            val intent = Intent(requireContext(), DailyChallengesActivity::class.java).apply {
+                putExtra("isFromBMI", true)
+                putExtra("myCategory", bmi.getBmiCategory())
             }
-            .setPositiveButton(resources.getString(R.string.go)) { _, _ ->
-                val intent = Intent(requireContext(), DailyChallengesActivity::class.java).apply {
-                    putExtra("isFromBMI", true)
-                    putExtra("myCategory", bmi.getBmiCategory())
-                }
-                startActivity(intent)
-            }
-            .show()
+            startActivity(intent)
+        }
     }
 
 }

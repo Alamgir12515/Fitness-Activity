@@ -36,7 +36,7 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/bmiCard"
+                android:id="@+id/maleCardView"
                 android:layout_width="@dimen/bmi_gender_card_size"
                 android:layout_height="@dimen/bmi_gender_card_size"
                 android:layout_marginVertical="@dimen/_10sdp"
@@ -80,7 +80,7 @@
                 android:layout_height="@dimen/_1sdp" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/stepCounterCard"
+                android:id="@+id/femaleCardView"
                 android:layout_width="@dimen/bmi_gender_card_size"
                 android:layout_height="@dimen/bmi_gender_card_size"
                 android:layout_marginVertical="@dimen/_10sdp"
@@ -265,12 +265,13 @@
             android:id="@+id/bmiResultHeading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_18sdp"
             android:text="@string/your_bmi"
             android:textColor="@color/black"
             android:textSize="@dimen/_18ssp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.12"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -283,25 +284,38 @@
             android:elevation="@dimen/_100sdp"
             android:text="\??.?"
             android:textColor="@color/black"
-            android:textSize="@dimen/_40ssp"
+            android:textSize="@dimen/_35ssp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bmiResultHeading"
+            app:layout_constraintStart_toStartOf="@+id/bmiResultHeading"
             app:layout_constraintTop_toBottomOf="@id/bmiResultHeading" />
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/bmiResultCategory"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="@dimen/_5sdp"-->
-        <!--            android:text="Overweight"-->
-        <!--            android:textColor="@color/white"-->
-        <!--            android:textSize="@dimen/_32ssp"-->
-        <!--            android:textStyle="bold"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/bmiResultValue" />-->
+        <TextView
+            android:id="@+id/bmiResultCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:text="Obese"
+            android:textSize="@dimen/_26ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.widget.Button
+            android:id="@+id/suggestionsButton"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_34sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_minus5sdp"
+            android:background="@drawable/sign_up_button_background"
+            android:text="@string/suggestions"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintEnd_toEndOf="@id/bmiResultCategory"
+            app:layout_constraintTop_toBottomOf="@id/bmiResultCategory" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

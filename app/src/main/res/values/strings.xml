@@ -70,4 +70,11 @@
     <string name="noThanks">No Thanks</string>
     <string name="dialog_title">Workout Recommendations</string>
     <string name="supporting_text">We have some workouts for you, bases on your BMI, wanna check out?</string>
+    <string name="legs">Legs</string>
+    <string name="chest">Chest</string>
+    <string name="shoulders">Shoulders</string>
+    <string name="back">Back</string>
+    <string name="arms">Arms</string>
+    <string name="abs">Abs</string>
+    <string name="suggestions">Suggestions</string>
 </resources>

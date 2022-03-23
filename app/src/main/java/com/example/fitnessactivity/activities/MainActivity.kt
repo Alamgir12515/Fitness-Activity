@@ -34,6 +34,10 @@ class MainActivity : AppCompatActivity() {
         fetchUser()
     }
 
+    override fun onBackPressed() {
+        finish()
+    }
+
     private fun navigateToRelatedFragment(destination: Destination?) {
         destination?.let {
             when (it) {

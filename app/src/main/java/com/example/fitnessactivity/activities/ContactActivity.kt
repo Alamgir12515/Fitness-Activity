@@ -20,5 +20,8 @@ class ContactActivity : AppCompatActivity() {
         binding.messengerCard.setOnClickListener {
             contactMessenger()
         }
+        binding.backIcon.setOnClickListener {
+            onBackPressed()
+        }
     }
 }
