@@ -49,7 +49,7 @@
         <entry key="app/src/main/res/layout/fragment_map.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.2907692307692308" />
         <entry key="app/src/main/res/layout/fragment_recommended.xml" value="0.2953125" />
-        <entry key="app/src/main/res/layout/fragment_step_counter.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/fragment_step_counter.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_videos.xml" value="0.27699071812408405" />
         <entry key="app/src/main/res/layout/intro_page.xml" value="0.25" />
         <entry key="app/src/main/res/layout/list_child_item.xml" value="0.2424112868747328" />

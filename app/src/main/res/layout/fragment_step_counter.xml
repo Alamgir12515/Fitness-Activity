@@ -90,9 +90,8 @@
             android:textSize="@dimen/_18ssp" />
     </LinearLayout>
 
-
     <android.widget.Button
-        android:id="@+id/calculateBmiButton"
+        android:id="@+id/resetButton"
         android:layout_width="@dimen/_110sdp"
         android:layout_height="@dimen/_32sdp"
         android:layout_below="@id/countLayout"
@@ -105,7 +104,7 @@
         android:layout_toEndOf="@id/imageView2"
         android:background="@drawable/calculate_button_background"
         android:paddingHorizontal="@dimen/_10sdp"
-        android:text="@string/calculate"
+        android:text="@string/reset"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/_16ssp"
@@ -153,8 +152,8 @@
                 android:id="@+id/stepCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:text="2690"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:text="0"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_23ssp"
                 android:textStyle="bold"
@@ -199,7 +198,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:text="94"
+                android:text="0"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_23ssp"
                 android:textStyle="bold"
@@ -246,7 +245,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:text="9432"
+                android:text="0"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_23ssp"
                 android:textStyle="bold"
