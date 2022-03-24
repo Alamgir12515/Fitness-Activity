@@ -196,9 +196,15 @@ fun Fragment.getCurrentData(): String {
     return simpleDateFormat.format(c)
 }
 
-fun String.isCurrentDate(): Boolean {
+fun String.isCurrentDay(): Boolean {
     val c = Calendar.getInstance().time
     val simpleDateFormat = SimpleDateFormat("dd", Locale.getDefault())
+    return simpleDateFormat.format(c) == this
+}
+
+fun String.isCurrentDate(): Boolean {
+    val c = Calendar.getInstance().time
+    val simpleDateFormat = SimpleDateFormat("E-dd", Locale.getDefault())
     return simpleDateFormat.format(c) == this
 }
 

@@ -42,6 +42,8 @@ class StepCounterFragment : Fragment(), SensorEventListener {
 
     private var _binding: FragmentStepCounterBinding? = null
     private val binding get() = _binding!!
+    var selectedDayPosition = 0
+    private var currentDayPosition = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Adding a context of SENSOR_SERVICE aas Sensor Manager
@@ -57,18 +59,34 @@ class StepCounterFragment : Fragment(), SensorEventListener {
     ): View {
         _binding = FragmentStepCounterBinding.inflate(inflater, container, false)
         requireActivity().setWhiteStatusBarColor()
-        binding.recyclerView.apply {
-            adapter = DaysRVAdapter(this@StepCounterFragment, getDaysOfWeek())
-        }
+        setupDays()
         binding.resetButton.setOnClickListener {
             saveChanges()
         }
-        getIt()
+        getAllDaysStepCount { daysSteps ->
+            setupStepCount(daysSteps, currentDate())
+        }
         fetchUser()
         return binding.root
     }
 
-    private fun getIt() {
+    private fun setupDays() {
+        getDaysOfWeek().forEachIndexed { index, s ->
+            if (s.isCurrentDate()) {
+                selectedDayPosition = index
+                currentDayPosition = index
+            }
+        }
+        setupRecyclerView(currentDayPosition)
+    }
+
+    private fun setupRecyclerView(selectedPosition: Int) {
+        binding.recyclerView.apply {
+            adapter = DaysRVAdapter(this@StepCounterFragment, getDaysOfWeek(), selectedPosition)
+        }
+    }
+
+    private fun getAllDaysStepCount(callback: (ArrayList<Day>) -> Unit) {
         mAuth?.currentUser?.uid?.let { uid ->
             databaseRef?.child(uid)?.child("Daily Steps")
                 ?.addValueEventListener(object : ValueEventListener {
@@ -79,7 +97,8 @@ class StepCounterFragment : Fragment(), SensorEventListener {
                                 daysSteps.add(it)
                             }
                         }
-                        setupStepCount(daysSteps)
+                        callback(daysSteps)
+//                        setupStepCount(daysSteps)
                     }
 
                     override fun onCancelled(error: DatabaseError) {
@@ -96,8 +115,8 @@ class StepCounterFragment : Fragment(), SensorEventListener {
         }
     }
 
-    private fun setupStepCount(daysSteps: ArrayList<Day>) {
-        val currentDateSteps = daysSteps.filter { it.date == currentDate() }
+    private fun setupStepCount(daysSteps: ArrayList<Day>, selectedDate: String) {
+        val currentDateSteps = daysSteps.filter { it.date == selectedDate }
         if (currentDateSteps.isNotEmpty()) {
             previousStepCount = currentDateSteps[0].steps?.toFloat() ?: 0f
             binding.stepCount.text = currentDateSteps[0].steps.toString()
@@ -108,7 +127,7 @@ class StepCounterFragment : Fragment(), SensorEventListener {
     private fun saveChanges() {
         mAuth?.currentUser?.uid?.let { uid ->
             val newStepCount = totalSteps.toInt() + previousStepCount.toInt()
-            val map = mapOf(currentDate() to Day(currentDate(), newStepCount + 5))
+            val map = mapOf(currentDate() to Day(currentDate(), newStepCount))
             databaseRef?.child(uid)?.child("Daily Steps")?.updateChildren(map)
                 ?.addOnCompleteListener { task ->
                     if (task.isSuccessful) {
@@ -194,6 +213,35 @@ class StepCounterFragment : Fragment(), SensorEventListener {
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
 
+    }
+
+    fun isSelectable(position: Int): Boolean {
+        return position <= getDaysOfWeek().indexOf(getCurrentData())
+    }
+
+    fun selectDay(dateString: String, position: Int) {
+        if (selectedDayPosition == currentDayPosition) saveChanges()
+        getAllDaysStepCount { days ->
+            var found = false
+            days.forEach { day ->
+                day.date?.let { date ->
+                    val parsedDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).parse(date)
+                    val comparableDateString =
+                        SimpleDateFormat("E-dd", Locale.getDefault()).format(parsedDate ?: Date())
+                    if (comparableDateString == dateString) {
+                        found = true
+                        setupStepCount(days, date)
+                    }
+                }
+            }
+            if (!found) {
+                binding.stepCount.text = "N/A"
+                binding.caloriesCount.text = "N/A"
+                binding.bpmCount.text = "N/A"
+            }
+            selectedDayPosition = position
+            setupRecyclerView(selectedDayPosition)
+        }
     }
 
 }

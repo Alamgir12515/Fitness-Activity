@@ -31,6 +31,9 @@ class EditProfileActivity : AppCompatActivity() {
     }
 
     private fun addButtonClickListener() {
+        binding.backIcon.setOnClickListener {
+            onBackPressed()
+        }
         binding.saveChangesButton.setOnClickListener {
             if (validateFields()) {
                 val user = User(
