@@ -44,6 +44,7 @@ class StepCounterFragment : Fragment(), SensorEventListener {
     private val binding get() = _binding!!
     var selectedDayPosition = 0
     private var currentDayPosition = 0
+    private var isResetting = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Adding a context of SENSOR_SERVICE aas Sensor Manager
@@ -61,7 +62,7 @@ class StepCounterFragment : Fragment(), SensorEventListener {
         requireActivity().setWhiteStatusBarColor()
         setupDays()
         binding.resetButton.setOnClickListener {
-            saveChanges()
+            if (!isResetting) saveChanges()
         }
         getAllDaysStepCount { daysSteps ->
             setupStepCount(daysSteps, currentDate())
@@ -98,7 +99,6 @@ class StepCounterFragment : Fragment(), SensorEventListener {
                             }
                         }
                         callback(daysSteps)
-//                        setupStepCount(daysSteps)
                     }
 
                     override fun onCancelled(error: DatabaseError) {
@@ -125,6 +125,7 @@ class StepCounterFragment : Fragment(), SensorEventListener {
     }
 
     private fun saveChanges() {
+        isResetting = true
         mAuth?.currentUser?.uid?.let { uid ->
             val newStepCount = totalSteps.toInt() + previousStepCount.toInt()
             val map = mapOf(currentDate() to Day(currentDate(), newStepCount))
@@ -133,6 +134,7 @@ class StepCounterFragment : Fragment(), SensorEventListener {
                     if (task.isSuccessful) {
                         binding.counter.text = "0"
                         totalSteps = 0f
+                        isResetting = false
                     } else {
                         showToastShort("Can't connect to server, try again later!")
                     }
@@ -178,8 +180,7 @@ class StepCounterFragment : Fragment(), SensorEventListener {
         // So don't forget to add the following permission in AndroidManifest.xml present in manifest folder of the app.
         val stepSensor = sensorManager?.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR)
 
-        val hasIt =
-            (requireActivity().packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_STEP_DETECTOR))
+        val hasIt = (requireActivity().packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_STEP_DETECTOR))
         if (hasIt) {
             "Step counter has started.!".showToastLong(requireContext())
         } else "It doesn't have nay!".showToastLong(requireContext())
@@ -190,7 +191,7 @@ class StepCounterFragment : Fragment(), SensorEventListener {
         } else {
             "AddedZ".printLog("cvzcvz")
             // Rate suitable for the user interface
-            sensorManager?.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_FASTEST)
+            sensorManager?.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_NORMAL)
         }
         val currentPosition = getDaysOfWeek().indexOf(getCurrentData())
         "currentPosition".printLog(currentPosition)
