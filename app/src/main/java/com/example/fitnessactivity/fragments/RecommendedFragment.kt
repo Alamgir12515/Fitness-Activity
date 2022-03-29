@@ -28,8 +28,7 @@ class RecommendedFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         isFromBMI = arguments?.getBoolean("isFromBMI") ?: false
-        myCategory =
-            (arguments?.getSerializable("myCategory") as? BmiCategory) ?: BmiCategory.Normal
+        myCategory = (arguments?.getSerializable("myCategory") as? BmiCategory) ?: BmiCategory.Normal
     }
 
 

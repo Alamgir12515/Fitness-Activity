@@ -90,8 +90,8 @@ class BmiFragment : Fragment() {
         } else {
             binding.calculateBmiButton.tag = getString(R.string.recalculate)
             UIUtil.hideKeyboard(requireActivity())
-            myBmi?.let { showSuggestion(it) }
             calculateBmi()
+            myBmi?.let { showSuggestion(it) }
         }
     }
 

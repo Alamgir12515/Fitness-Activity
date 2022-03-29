@@ -180,7 +180,8 @@ class StepCounterFragment : Fragment(), SensorEventListener {
         // So don't forget to add the following permission in AndroidManifest.xml present in manifest folder of the app.
         val stepSensor = sensorManager?.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR)
 
-        val hasIt = (requireActivity().packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_STEP_DETECTOR))
+        val hasIt =
+            (requireActivity().packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_STEP_DETECTOR))
         if (hasIt) {
             "Step counter has started.!".showToastLong(requireContext())
         } else "It doesn't have nay!".showToastLong(requireContext())
