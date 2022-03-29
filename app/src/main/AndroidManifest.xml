@@ -10,7 +10,7 @@
     <application
         android:name=".misc.MyApplication"
         android:allowBackup="true"
-        android:hardwareAccelerated="false"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -94,11 +94,13 @@
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/WhiteStatusBar"
+            android:hardwareAccelerated="false"
             android:windowSoftInputMode="adjustResize"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".activities.SignUpActivity"
             android:exported="false"
+            android:hardwareAccelerated="false"
             android:screenOrientation="portrait"
             android:theme="@style/WhiteStatusBar"
             android:windowSoftInputMode="adjustResize"

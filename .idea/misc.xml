@@ -3,6 +3,37 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/about_us_item_layout.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/activity_about_us.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/activity_add_challenge.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/activity_authentication.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/activity_body_part.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/activity_contact.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/activity_daily_challenges.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/activity_dashboard.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/activity_edit_profile.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/activity_exercise.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/activity_login.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/activity_on_boarding.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/activity_sign_up.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/activity_workout_suggestions.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/challenges_list_item.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/exercises_list_item.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/fragment_bmi.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/fragment_custom.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/fragment_map.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/fragment_profile.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/fragment_recommended.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/fragment_step_counter.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/fragment_videos.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/intro_page.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/list_child_item.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/list_header_item.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/step_counter_calender_layout.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/layout/video_list_item.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1796875" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Fitness-Activity/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/auth_button_background.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/drawable/authentication_edit_text_background.xml" value="0.25833333333333336" />
         <entry key="app/src/main/res/drawable/bmi_field_background.xml" value="0.31145833333333334" />
